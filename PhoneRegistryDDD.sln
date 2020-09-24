@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30503.244
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PhoneRegistryDDD.Availability", "PhoneRegistryDDD.Availability\PhoneRegistryDDD.Availability.csproj", "{30DDFA58-F088-4803-99A2-4E044AB0DD02}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PhoneRegistryDDD.AvailabilityTests", "PhoneRegistryDDD.AvailabilityTests\PhoneRegistryDDD.AvailabilityTests.csproj", "{6EED8800-0EF8-431F-A8EB-D2EDEAF08652}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{30DDFA58-F088-4803-99A2-4E044AB0DD02}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{30DDFA58-F088-4803-99A2-4E044AB0DD02}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{30DDFA58-F088-4803-99A2-4E044AB0DD02}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{30DDFA58-F088-4803-99A2-4E044AB0DD02}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6EED8800-0EF8-431F-A8EB-D2EDEAF08652}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6EED8800-0EF8-431F-A8EB-D2EDEAF08652}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6EED8800-0EF8-431F-A8EB-D2EDEAF08652}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6EED8800-0EF8-431F-A8EB-D2EDEAF08652}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {37D5279A-0D15-4FFF-B9F8-25BC6B1E8E80}
+	EndGlobalSection
+EndGlobal
