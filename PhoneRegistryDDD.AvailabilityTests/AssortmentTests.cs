@@ -61,24 +61,12 @@ namespace PhoneRegistryDDD.AvailabilityTests
         }
 
         [Test]
-        public void When_assortmentHasTemporaryBlockBySameOwner_then_BlockPermanently()
-        {
-            Assortment assortment = AnyTemporaryBlockedAssortment();
-            Owner owner = OwnerFromSnapshot();
-
-            var result = assortment.BlockPermanentlyFor(owner);
-
-            Assert.That(result, Is.True);
-            Assert.That(assortment.IsBlocked(), Is.True);
-        }
-
-        [Test]
         public void When_assortmentHasNotTemporaryBlock_then_CantBlockPermanently()
         {
             Assortment assortment = NotBlockedAssortment();
             Owner owner = OwnerFromSnapshot();
 
-            var result = assortment.BlockPermanentlyFor(owner);
+            var result = assortment.BlockPermanentlyFor(owner, AnyYears());
 
             Assert.That(result, Is.False);
             Assert.That(assortment.IsBlocked(), Is.False);
@@ -90,7 +78,7 @@ namespace PhoneRegistryDDD.AvailabilityTests
             Assortment assortment = AnyPermanentBlockedAssortment();
             Owner owner = OwnerFromSnapshot();
 
-            var result = assortment.BlockPermanentlyFor(owner);
+            var result = assortment.BlockPermanentlyFor(owner, AnyYears());
 
             Assert.That(result, Is.False);
         }
@@ -101,17 +89,28 @@ namespace PhoneRegistryDDD.AvailabilityTests
             Assortment assortment = AnyTemporaryBlockedAssortment();
             Owner owner = NewOwner();
 
-            var result = assortment.BlockPermanentlyFor(owner);
+            var result = assortment.BlockPermanentlyFor(owner, AnyYears());
+
+            Assert.That(result, Is.False);
+        }
+
+        [Test]
+        public void When_blockedDateIsGreaterThanCheckedDate_then_CantBlockPermanently()
+        {
+            Assortment assortment = AnyTemporaryBlockedAssortment();
+            Owner owner = OwnerFromSnapshot();
+
+            var result = assortment.BlockPermanentlyFor(owner, 999);
 
             Assert.That(result, Is.False);
         }
 
         private Assortment NotBlockedAssortment() => Assortment.New();
         private Assortment AnyPermanentBlockedAssortment() => Assortment.FromSnapshot(Guid.NewGuid(), new Block[] { Block.Temporary(OwnerFromSnapshot()), Block.Permanent(OwnerFromSnapshot()) });
-        private Assortment AnyTemporaryBlockedAssortment() => Assortment.FromSnapshot(Guid.NewGuid(), new Block[] { Block.Temporary(OwnerFromSnapshot()) });
+        private Assortment AnyTemporaryBlockedAssortment() => Assortment.FromSnapshot(Guid.NewGuid(), new Block[] { Block.FromSnapshot(OwnerFromSnapshot(), false, AnyDate()) });
         private Owner OwnerFromSnapshot() => Owner.FromSnapshot(_anyOwnerGuid);
         private Owner NewOwner() => Owner.New();
-
-
+        private int AnyYears() => 2;
+        private DateTime AnyDate() => new DateTime(2018, 1, 1);
     }
 }

@@ -9,7 +9,7 @@ namespace PhoneRegistryDDD.Availability.Entities
         private const int TEMPORARY_BLOCK_INDEX = 0;
         private const int PERMANENT_BLOCK_INDEX = 1;
 
-        public Guid Id { get; }
+        private readonly Guid _id;
         private readonly Block[] _blocks;
 
         private Block _temporaryBlock => _blocks[TEMPORARY_BLOCK_INDEX];
@@ -20,7 +20,7 @@ namespace PhoneRegistryDDD.Availability.Entities
             if (blocks.Length > 2)
                 throw new ToManyBlockException();
 
-            Id = id;
+            _id = id;
             _blocks = new Block[2];
             blocks.CopyTo(_blocks, 0);
         }
@@ -58,9 +58,9 @@ namespace PhoneRegistryDDD.Availability.Entities
             _blocks[TEMPORARY_BLOCK_INDEX] = null;
         }
 
-        public bool BlockPermanentlyFor(Owner owner)
+        public bool BlockPermanentlyFor(Owner owner, int usingYears)
         {
-            if (HasPermanentBlock() || (!_temporaryBlock?.IsBlockedBySameOwner(owner) ?? false))
+            if (HasPermanentBlock() || (!_temporaryBlock?.CanBlockParmanently(owner, usingYears) ?? false))
                 return false;
 
             if (HasTemporaryBlock())
