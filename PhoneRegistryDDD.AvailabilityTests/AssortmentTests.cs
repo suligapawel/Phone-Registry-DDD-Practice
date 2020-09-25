@@ -2,6 +2,7 @@ using NUnit.Framework;
 using PhoneRegistryDDD.Availability.Entities;
 using PhoneRegistryDDD.Availability.ValueObjects;
 using System;
+using System.Security.Cryptography.X509Certificates;
 
 namespace PhoneRegistryDDD.AvailabilityTests
 {
@@ -55,7 +56,7 @@ namespace PhoneRegistryDDD.AvailabilityTests
         }
 
         [Test]
-        public void When_assortmentHasNotPermanentBlock_then_BlockPermanently()
+        public void When_assortmentHasNotAnyBlock_then_BlockPermanently()
         {
             Assortment assortment = NotBlockedAssortment();
             Owner owner = AnyOwner();
@@ -71,6 +72,17 @@ namespace PhoneRegistryDDD.AvailabilityTests
         {
             Assortment assortment = AnyPermanentBlockedAssortment();
             Owner owner = AnyOwner();
+
+            var result = assortment.BlockPermanentlyFor(owner);
+
+            Assert.That(result, Is.False);
+        }
+
+        [Test]
+        public void When_assortmentHasTemporaryBlockByOtherOwner_then_CantBlockPermanent()
+        {
+            Assortment assortment = AnyTemporaryBlockedAssortment();
+            Owner owner = Owner.New();
 
             var result = assortment.BlockPermanentlyFor(owner);
 

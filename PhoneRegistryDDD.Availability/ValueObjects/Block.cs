@@ -15,5 +15,9 @@ namespace PhoneRegistryDDD.Availability.ValueObjects
 
         public static Block Temporary(Owner owner) => new Block(owner, false);
         public static Block Permanent(Owner owner) => new Block(owner, true);
+
+        public bool CanBlockParmanently(Owner owner)=> IsBlockedBySameOwner(owner);
+
+        private bool IsBlockedBySameOwner(Owner owner) => _owner.Equals(owner);
     }
 }

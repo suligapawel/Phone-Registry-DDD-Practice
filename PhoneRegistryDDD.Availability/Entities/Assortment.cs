@@ -60,7 +60,7 @@ namespace PhoneRegistryDDD.Availability.Entities
 
         public bool BlockPermanentlyFor(Owner owner)
         {
-            if (HasPermanentBlock())
+            if (HasPermanentBlock() || (HasTemporaryBlock() && !_temporaryBlock.CanBlockParmanently(owner)))
                 return false;
 
             _blocks[PERMANENT_BLOCK_INDEX] = Block.Permanent(owner);
