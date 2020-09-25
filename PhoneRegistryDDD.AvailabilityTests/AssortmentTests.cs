@@ -7,19 +7,12 @@ namespace PhoneRegistryDDD.AvailabilityTests
 {
     public class AssortmentTests
     {
-        private Guid _anyOwnerGuid;
-
-        [SetUp]
-        public void Setup()
-        {
-            _anyOwnerGuid = Guid.NewGuid();
-        }
 
         [Test]
         public void When_assortmentHasNotBlocks_then_blockAssortment()
         {
             Assortment assortment = NotBlockedAssortment();
-            Owner owner = OwnerFromSnapshot();
+            Owner owner = AnyOwner();
 
             var result = assortment.BlockTemporaryFor(owner);
 
@@ -27,11 +20,12 @@ namespace PhoneRegistryDDD.AvailabilityTests
             Assert.That(assortment.IsBlocked(), Is.True);
         }
 
+
         [Test]
         public void When_assortmentHasAnyBlock_then_dontLetAddingNewBlockAndKeepBlocking()
         {
             Assortment assortment = AnyPermanentBlockedAssortment();
-            Owner owner = OwnerFromSnapshot();
+            Owner owner = AnyOwner();
 
             var result = assortment.BlockTemporaryFor(owner);
 
@@ -61,56 +55,31 @@ namespace PhoneRegistryDDD.AvailabilityTests
         }
 
         [Test]
-        public void When_assortmentHasNotTemporaryBlock_then_CantBlockPermanently()
+        public void When_assortmentHasNotPermanentBlock_then_BlockPermanently()
         {
             Assortment assortment = NotBlockedAssortment();
-            Owner owner = OwnerFromSnapshot();
+            Owner owner = AnyOwner();
 
-            var result = assortment.BlockPermanentlyFor(owner, AnyYears());
+            var result = assortment.BlockPermanentlyFor(owner);
 
-            Assert.That(result, Is.False);
-            Assert.That(assortment.IsBlocked(), Is.False);
+            Assert.That(result, Is.True);
+            Assert.That(assortment.IsBlocked(), Is.True);
         }
 
         [Test]
         public void When_assortmentHasPermanentBlock_then_CantBlockPermanently()
         {
             Assortment assortment = AnyPermanentBlockedAssortment();
-            Owner owner = OwnerFromSnapshot();
+            Owner owner = AnyOwner();
 
-            var result = assortment.BlockPermanentlyFor(owner, AnyYears());
-
-            Assert.That(result, Is.False);
-        }
-
-        [Test]
-        public void When_assortmentHasTemporaryBlockByOtherOwner_then_CantBlockPermanently()
-        {
-            Assortment assortment = AnyTemporaryBlockedAssortment();
-            Owner owner = NewOwner();
-
-            var result = assortment.BlockPermanentlyFor(owner, AnyYears());
-
-            Assert.That(result, Is.False);
-        }
-
-        [Test]
-        public void When_blockedDateIsGreaterThanCheckedDate_then_CantBlockPermanently()
-        {
-            Assortment assortment = AnyTemporaryBlockedAssortment();
-            Owner owner = OwnerFromSnapshot();
-
-            var result = assortment.BlockPermanentlyFor(owner, 999);
+            var result = assortment.BlockPermanentlyFor(owner);
 
             Assert.That(result, Is.False);
         }
 
         private Assortment NotBlockedAssortment() => Assortment.New();
-        private Assortment AnyPermanentBlockedAssortment() => Assortment.FromSnapshot(Guid.NewGuid(), new Block[] { Block.Temporary(OwnerFromSnapshot()), Block.Permanent(OwnerFromSnapshot()) });
-        private Assortment AnyTemporaryBlockedAssortment() => Assortment.FromSnapshot(Guid.NewGuid(), new Block[] { Block.FromSnapshot(OwnerFromSnapshot(), false, AnyDate()) });
-        private Owner OwnerFromSnapshot() => Owner.FromSnapshot(_anyOwnerGuid);
-        private Owner NewOwner() => Owner.New();
-        private int AnyYears() => 2;
-        private DateTime AnyDate() => new DateTime(2018, 1, 1);
+        private Assortment AnyPermanentBlockedAssortment() => Assortment.FromSnapshot(Guid.NewGuid(), new Block[] { Block.Temporary(AnyOwner()), Block.Permanent(AnyOwner()) });
+        private Assortment AnyTemporaryBlockedAssortment() => Assortment.FromSnapshot(Guid.NewGuid(), new Block[] { Block.Temporary(AnyOwner()) });
+        private Owner AnyOwner() => Owner.FromSnapshot(Guid.NewGuid());
     }
 }

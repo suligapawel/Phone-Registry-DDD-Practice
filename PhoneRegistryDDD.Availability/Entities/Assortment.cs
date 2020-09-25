@@ -58,18 +58,13 @@ namespace PhoneRegistryDDD.Availability.Entities
             _blocks[TEMPORARY_BLOCK_INDEX] = null;
         }
 
-        public bool BlockPermanentlyFor(Owner owner, int usingYears)
+        public bool BlockPermanentlyFor(Owner owner)
         {
-            if (HasPermanentBlock() || (!_temporaryBlock?.CanBlockParmanently(owner, usingYears) ?? false))
+            if (HasPermanentBlock())
                 return false;
 
-            if (HasTemporaryBlock())
-            {
-                _blocks[PERMANENT_BLOCK_INDEX] = Block.Permanent(owner);
-                return true;
-            }
-
-            return false;
+            _blocks[PERMANENT_BLOCK_INDEX] = Block.Permanent(owner);
+            return true;
         }
     }
 }
