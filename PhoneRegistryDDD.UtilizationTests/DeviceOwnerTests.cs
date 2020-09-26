@@ -1,5 +1,6 @@
 ﻿using NUnit.Framework;
 using PhoneRegistryDDD.Utilization.Entities;
+using PhoneRegistryDDD.Utilization.Exceptions;
 using PhoneRegistryDDD.Utilization.ValueObjects;
 using System;
 using System.Collections.Generic;
@@ -40,6 +41,12 @@ namespace PhoneRegistryDDD.UtilizationTests
             deviceOwner.Purchase(device);
 
             Assert.That(deviceOwner.DidPurchase(device), Is.False);
+        }
+
+        [Test]
+        public void When_OwnerHasBothPurchasedAndUsedDevice_then_ThrowCannotUsePurchasedDeviceException()
+        {
+            Assert.Catch<CannotUsePurchasedDeviceException>(() => DeviceOwner.WithPurchasedHistory(Guid.NewGuid(), _deviceCollection, _deviceCollection));
         }
     }
 }

@@ -1,4 +1,5 @@
-﻿using PhoneRegistryDDD.Utilization.ValueObjects;
+﻿using PhoneRegistryDDD.Utilization.Exceptions;
+using PhoneRegistryDDD.Utilization.ValueObjects;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,12 +15,21 @@ namespace PhoneRegistryDDD.Utilization.Entities
         private DeviceOwner(Guid id, ICollection<Device> currentlyUsed, ICollection<Device> purchased)
         {
             _id = id;
+
+            if (UsesPurchasedDevice(currentlyUsed, purchased))
+                throw new CannotUsePurchasedDeviceException();
+
             _currentlyUsed = currentlyUsed;
             _purchased = purchased;
         }
 
-        public static DeviceOwner WithoutPurchasedHistory(Guid id, ICollection<Device> active)
-            => new DeviceOwner(id, active, new List<Device>());
+        public static DeviceOwner WithoutPurchasedHistory(Guid id, ICollection<Device> currentlyUsed)
+            => new DeviceOwner(id, currentlyUsed, new List<Device>());
+
+        public static DeviceOwner WithPurchasedHistory(Guid id, ICollection<Device> currentlyUsed, ICollection<Device> purchased)
+            => new DeviceOwner(id, currentlyUsed, purchased);
+        private static bool UsesPurchasedDevice(ICollection<Device> currentlyUsed, ICollection<Device> purchased)
+             => currentlyUsed.Intersect(purchased).Any();
 
         public void Purchase(Device device)
         {
