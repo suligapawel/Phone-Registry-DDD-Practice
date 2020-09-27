@@ -7,9 +7,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PhoneRegistryDDD.Availabili
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PhoneRegistryDDD.AvailabilityTests", "PhoneRegistryDDD.AvailabilityTests\PhoneRegistryDDD.AvailabilityTests.csproj", "{6EED8800-0EF8-431F-A8EB-D2EDEAF08652}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PhoneRegistryDDD.Utilization", "PhoneRegistryDDD.Utilization\PhoneRegistryDDD.Utilization.csproj", "{F4822B16-6559-46D0-AABB-85064434E1C2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PhoneRegistryDDD.Disposal", "PhoneRegistryDDD.Disposal\PhoneRegistryDDD.Disposal.csproj", "{F4822B16-6559-46D0-AABB-85064434E1C2}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PhoneRegistryDDD.UtilizationTests", "PhoneRegistryDDD.UtilizationTests\PhoneRegistryDDD.UtilizationTests.csproj", "{E6053089-BF2C-4F81-8820-8C174F513D5C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PhoneRegistryDDD.DisposalTests", "PhoneRegistryDDD.DisposalTests\PhoneRegistryDDD.DisposalTests.csproj", "{E6053089-BF2C-4F81-8820-8C174F513D5C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

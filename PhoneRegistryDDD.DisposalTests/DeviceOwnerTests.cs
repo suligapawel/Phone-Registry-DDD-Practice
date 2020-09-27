@@ -18,7 +18,6 @@ namespace PhoneRegistryDDD.UtilizationTests
             var guid = Guid.NewGuid();
             _anyDevice = new Device(guid);
             _deviceCollection = new List<Device> { _anyDevice };
-
         }
 
         [Test]
