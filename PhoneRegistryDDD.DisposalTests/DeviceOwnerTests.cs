@@ -18,7 +18,7 @@ namespace PhoneRegistryDDD.DisposalTests
         public void SetUp()
         {
             var guid = Guid.NewGuid();
-            _anyUsedDevice = UsedDevice.UsedFrom(guid, new DateTime(2018, 1, 1));
+            _anyUsedDevice = UsedDevice.UsedSince(guid, new DateTime(2018, 1, 1));
             _samePurchasedDeviceAsTheUsedOne = new PurchasedDevice(guid);
             _usedDevices = new List<UsedDevice> { _anyUsedDevice };
             _purchasedDevices = new List<PurchasedDevice> { _samePurchasedDeviceAsTheUsedOne };
@@ -30,7 +30,7 @@ namespace PhoneRegistryDDD.DisposalTests
             DeviceOwner deviceOwner = DeviceOwner.WithoutPurchasedHistory(Guid.NewGuid(), _usedDevices);
             PurchasedDevice purchasedDevice = _samePurchasedDeviceAsTheUsedOne;
 
-            deviceOwner.Purchase(purchasedDevice, 24);
+            deviceOwner.Purchase(purchasedDevice, 0);
 
             Assert.That(deviceOwner.DidPurchase(purchasedDevice), Is.True);
         }
@@ -41,7 +41,7 @@ namespace PhoneRegistryDDD.DisposalTests
             DeviceOwner deviceOwner = DeviceOwner.WithoutPurchasedHistory(Guid.NewGuid(), new List<UsedDevice>());
             PurchasedDevice purchasedDevice = _samePurchasedDeviceAsTheUsedOne;
 
-            deviceOwner.Purchase(purchasedDevice, 24);
+            deviceOwner.Purchase(purchasedDevice, 0);
 
             Assert.That(deviceOwner.DidPurchase(purchasedDevice), Is.False);
         }
@@ -50,6 +50,17 @@ namespace PhoneRegistryDDD.DisposalTests
         public void When_OwnerHasBothPurchasedAndUsedDevice_then_ThrowCannotUsePurchasedDeviceException()
         {
             Assert.Catch<CannotUsePurchasedDeviceException>(() => DeviceOwner.WithPurchasedHistory(Guid.NewGuid(), _usedDevices, _purchasedDevices));
+        }
+
+        [Test]
+        public void When_OwnerHasNotUsedDeviceForCertainPeriodOfTime_then_CantPurchaseDevice()
+        {
+            DeviceOwner deviceOwner = DeviceOwner.WithoutPurchasedHistory(Guid.NewGuid(), _usedDevices);
+            PurchasedDevice purchasedDevice = _samePurchasedDeviceAsTheUsedOne;
+
+            deviceOwner.Purchase(purchasedDevice, 1000);
+
+            Assert.That(deviceOwner.DidPurchase(purchasedDevice), Is.False);
         }
     }
 }

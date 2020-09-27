@@ -43,20 +43,28 @@ namespace PhoneRegistryDDD.Disposal.Entities
         }
 
         //TODO: Używany przez określony czas
-        public void Purchase(PurchasedDevice device, int usedMonth)
+        public void Purchase(PurchasedDevice device, int monthLimit)
         {
             if (NotUsed(device))
                 return;
 
-            StopUsing(device);
+            UsedDevice currentlyUsedDevice = GetUsedDeviceBy(device);
+
+            if (currentlyUsedDevice.UsedTooShort(monthLimit))
+                return;
+
+            StopUsing(currentlyUsedDevice);
             Purchase(device);
         }
 
-        private void StopUsing(PurchasedDevice purchasedDevice)
+        private UsedDevice GetUsedDeviceBy(PurchasedDevice device)
         {
-            var currentlyUsedDevice = _currentlyUsed.First(usedDevice => purchasedDevice.IsSameDeviceAs(usedDevice));
+            return _currentlyUsed.First(usedDevice => device.IsSameDeviceAs(usedDevice));
+        }
 
-            _currentlyUsed.Remove(currentlyUsedDevice);
+        private void StopUsing(UsedDevice device)
+        {
+            _currentlyUsed.Remove(device);
         }
 
         private void Purchase(PurchasedDevice device)
