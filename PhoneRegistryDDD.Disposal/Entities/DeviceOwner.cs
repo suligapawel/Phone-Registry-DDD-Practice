@@ -9,10 +9,10 @@ namespace PhoneRegistryDDD.Disposal.Entities
     public sealed class DeviceOwner
     {
         private readonly Guid _id;
-        private readonly ICollection<Device> _currentlyUsed;
-        private readonly ICollection<Device> _purchased;
+        private readonly ICollection<UsedDevice> _currentlyUsed;
+        private readonly ICollection<PurchasedDevice> _purchased;
 
-        private DeviceOwner(Guid id, ICollection<Device> currentlyUsed, ICollection<Device> purchased)
+        private DeviceOwner(Guid id, ICollection<UsedDevice> currentlyUsed, ICollection<PurchasedDevice> purchased)
         {
             _id = id;
 
@@ -23,30 +23,62 @@ namespace PhoneRegistryDDD.Disposal.Entities
             _purchased = purchased;
         }
 
-        public static DeviceOwner WithoutPurchasedHistory(Guid id, ICollection<Device> currentlyUsed)
-            => new DeviceOwner(id, currentlyUsed, new List<Device>());
+        public static DeviceOwner WithoutPurchasedHistory(Guid id, ICollection<UsedDevice> currentlyUsed)
+            => new DeviceOwner(id, currentlyUsed, new List<PurchasedDevice>());
 
-        public static DeviceOwner WithPurchasedHistory(Guid id, ICollection<Device> currentlyUsed, ICollection<Device> purchased)
+        public static DeviceOwner WithPurchasedHistory(Guid id, ICollection<UsedDevice> currentlyUsed, ICollection<PurchasedDevice> purchased)
             => new DeviceOwner(id, currentlyUsed, purchased);
-        private static bool UsesPurchasedDevice(ICollection<Device> currentlyUsed, ICollection<Device> purchased)
-             => currentlyUsed.Intersect(purchased).Any();
 
-        public void Purchase(Device device)
+        private static bool UsesPurchasedDevice(ICollection<UsedDevice> currentlyUsed, ICollection<PurchasedDevice> purchased)
+        {
+            foreach (var purchasedDevice in purchased)
+            {
+                bool usePurchasedDevice = currentlyUsed.Any(usedDevice => purchasedDevice.IsSameDeviceAs(usedDevice));
+
+                if (usePurchasedDevice)
+                    return true;
+            }
+
+            return false;
+        }
+
+        //TODO: Używany przez określony czas
+        public void Purchase(PurchasedDevice device, int monthLimit)
         {
             if (NotUsed(device))
                 return;
 
+            UsedDevice currentlyUsedDevice = GetUsedDeviceBy(device);
+
+            if (currentlyUsedDevice.UsedTooShort(monthLimit))
+                return;
+
+            StopUsing(currentlyUsedDevice);
+            Purchase(device);
+        }
+
+        private UsedDevice GetUsedDeviceBy(PurchasedDevice device)
+        {
+            return _currentlyUsed.First(usedDevice => device.IsSameDeviceAs(usedDevice));
+        }
+
+        private void StopUsing(UsedDevice device)
+        {
             _currentlyUsed.Remove(device);
+        }
+
+        private void Purchase(PurchasedDevice device)
+        {
             _purchased.Add(device);
         }
 
-        public bool DidPurchase(Device device)
+        public bool DidPurchase(PurchasedDevice device)
             => NotUsed(device) && Purchased(device);
 
-        private bool Purchased(Device device)
+        private bool Purchased(PurchasedDevice device)
             => _purchased.Any(x => x.Equals(device));
 
-        private bool NotUsed(Device device)
-            => !_currentlyUsed.Any(x => x.Equals(device));
+        private bool NotUsed(PurchasedDevice purchasedDevice)
+            => !_currentlyUsed.Any(usedDevice => purchasedDevice.IsSameDeviceAs(usedDevice));
     }
 }
