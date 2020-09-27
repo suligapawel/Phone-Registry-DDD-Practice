@@ -7,6 +7,10 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PhoneRegistryDDD.Availabili
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PhoneRegistryDDD.AvailabilityTests", "PhoneRegistryDDD.AvailabilityTests\PhoneRegistryDDD.AvailabilityTests.csproj", "{6EED8800-0EF8-431F-A8EB-D2EDEAF08652}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PhoneRegistryDDD.Disposal", "PhoneRegistryDDD.Disposal\PhoneRegistryDDD.Disposal.csproj", "{F4822B16-6559-46D0-AABB-85064434E1C2}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PhoneRegistryDDD.DisposalTests", "PhoneRegistryDDD.DisposalTests\PhoneRegistryDDD.DisposalTests.csproj", "{E6053089-BF2C-4F81-8820-8C174F513D5C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +25,14 @@ Global
 		{6EED8800-0EF8-431F-A8EB-D2EDEAF08652}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6EED8800-0EF8-431F-A8EB-D2EDEAF08652}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6EED8800-0EF8-431F-A8EB-D2EDEAF08652}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F4822B16-6559-46D0-AABB-85064434E1C2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F4822B16-6559-46D0-AABB-85064434E1C2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F4822B16-6559-46D0-AABB-85064434E1C2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F4822B16-6559-46D0-AABB-85064434E1C2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E6053089-BF2C-4F81-8820-8C174F513D5C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E6053089-BF2C-4F81-8820-8C174F513D5C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E6053089-BF2C-4F81-8820-8C174F513D5C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E6053089-BF2C-4F81-8820-8C174F513D5C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
