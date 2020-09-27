@@ -14,7 +14,6 @@ namespace PhoneRegistryDDD.Disposal.ValueObjects
         public override bool Equals(object obj)
             => obj is Device device && _id.Equals(device._id);
 
-
         public override int GetHashCode() => HashCode.Combine(_id);
     }
 }
