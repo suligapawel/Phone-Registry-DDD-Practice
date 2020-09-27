@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace PhoneRegistryDDD.Utilization.Exceptions
+namespace PhoneRegistryDDD.Disposal.Exceptions
 {
     public class CannotUsePurchasedDeviceException : Exception
     {

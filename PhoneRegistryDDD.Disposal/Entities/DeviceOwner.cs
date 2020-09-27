@@ -1,10 +1,10 @@
-﻿using PhoneRegistryDDD.Utilization.Exceptions;
-using PhoneRegistryDDD.Utilization.ValueObjects;
+﻿using PhoneRegistryDDD.Disposal.Exceptions;
+using PhoneRegistryDDD.Disposal.ValueObjects;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace PhoneRegistryDDD.Utilization.Entities
+namespace PhoneRegistryDDD.Disposal.Entities
 {
     public sealed class DeviceOwner
     {

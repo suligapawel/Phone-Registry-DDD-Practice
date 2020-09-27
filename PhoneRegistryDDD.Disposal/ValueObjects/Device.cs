@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace PhoneRegistryDDD.Utilization.ValueObjects
+namespace PhoneRegistryDDD.Disposal.ValueObjects
 {
     public class Device
     {

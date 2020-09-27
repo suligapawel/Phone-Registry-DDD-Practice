@@ -1,8 +1,8 @@
 ﻿using NUnit.Framework;
-using PhoneRegistryDDD.Utilization.Entities;
+using PhoneRegistryDDD.Disposal.Entities;
 using System;
 
-namespace PhoneRegistryDDD.UtilizationTests
+namespace PhoneRegistryDDD.DisposalTests
 {
     internal class ProductToDisposeTests
     {

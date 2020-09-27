@@ -1,11 +1,11 @@
 ﻿using NUnit.Framework;
-using PhoneRegistryDDD.Utilization.Entities;
-using PhoneRegistryDDD.Utilization.Exceptions;
-using PhoneRegistryDDD.Utilization.ValueObjects;
+using PhoneRegistryDDD.Disposal.Entities;
+using PhoneRegistryDDD.Disposal.Exceptions;
+using PhoneRegistryDDD.Disposal.ValueObjects;
 using System;
 using System.Collections.Generic;
 
-namespace PhoneRegistryDDD.UtilizationTests
+namespace PhoneRegistryDDD.DisposalTests
 {
     internal class DeviceOwnerTests
     {

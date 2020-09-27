@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace PhoneRegistryDDD.Utilization.Entities
+namespace PhoneRegistryDDD.Disposal.Entities
 {
     public sealed class ProductToDispose
     {
