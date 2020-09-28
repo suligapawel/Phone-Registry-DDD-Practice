@@ -42,7 +42,6 @@ namespace PhoneRegistryDDD.Disposal.Entities
             return false;
         }
 
-        //TODO: Używany przez określony czas
         public void Purchase(PurchasedDevice device, int monthLimit)
         {
             if (NotUsed(device))
