@@ -1,19 +1,27 @@
 ﻿using PhoneRegistryDDD.Helpdesk.Entities.Devices;
+using PhoneRegistryDDD.Helpdesk.ValueObjects;
+using System;
 
 namespace PhoneRegistryDDD.Helpdesk.Entities
 {
     public sealed class SimCard
     {
+        public Guid Id { get; }
+
         private Device _device;
 
-        private SimCard() { }
-        private SimCard(Device device)
+        private SimCard(Guid id)
+        {
+            Id = id;
+        }
+
+        private SimCard(Guid id, Device device) : this(id)
         {
             _device = device;
         }
 
-        public static SimCard Free() => new SimCard();
-        public static SimCard With(Device device) => new SimCard(device);
+        public static SimCard Free(Guid id) => new SimCard(id);
+        public static SimCard With(Guid id, Device device) => new SimCard(id, device);
 
         internal bool IsFree()
         {
@@ -32,5 +40,15 @@ namespace PhoneRegistryDDD.Helpdesk.Entities
 
             return _device.IsSameTypeAs(device);
         }
+
+        internal bool Has(Device device)
+        {
+            if (IsFree())
+                return false;
+
+            return _device.Equals(device);
+        }
+
+        public SimSnapshot ToSnapshot() => new SimSnapshot(Id, _device.Id);
     }
 }
