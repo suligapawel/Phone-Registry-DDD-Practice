@@ -11,7 +11,7 @@ namespace PhoneRegistryDDD.Availability.Core.Entities
             Id = id;
         }
 
-        public static Owner New() => new Owner(Guid.NewGuid());
+        public static Owner New(Guid guid) => new Owner(guid);
         public static Owner FromSnapshot(Guid id) => new Owner(id);
 
         public override bool Equals(object obj) => obj is Owner owner && owner.Id == Id;
