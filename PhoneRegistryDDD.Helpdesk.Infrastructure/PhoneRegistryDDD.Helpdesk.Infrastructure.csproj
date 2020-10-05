@@ -4,4 +4,9 @@
     <TargetFramework>netcoreapp3.1</TargetFramework>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\PhoneRegistryDDD.Availability.Core\PhoneRegistryDDD.Availability.Core.csproj" />
+    <ProjectReference Include="..\PhoneRegistryDDD.Helpdesk.Core\PhoneRegistryDDD.Helpdesk.Core.csproj" />
+  </ItemGroup>
+
 </Project>
