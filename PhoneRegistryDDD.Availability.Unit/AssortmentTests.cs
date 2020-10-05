@@ -81,7 +81,7 @@ namespace PhoneRegistryDDD.Availability.CoreTests
         public void When_assortmentHasTemporaryBlockByOtherOwner_then_CantBlockPermanent()
         {
             Assortment assortment = AnyTemporaryBlockedAssortment();
-            Owner owner = Owner.New();
+            Owner owner = Owner.New(Guid.NewGuid());
 
             var result = assortment.BlockPermanentlyFor(owner);
 
