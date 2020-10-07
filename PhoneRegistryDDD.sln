@@ -15,13 +15,13 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PhoneRegistryDDD.Helpdesk.C
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PhoneRegistryDDD.Helpdesk.Unit", "PhoneRegistryDDD.Helpdesk.Unit\PhoneRegistryDDD.Helpdesk.Unit.csproj", "{64EA9638-89CE-4108-8534-FF8E7EEF2F44}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PhoneRegistryDDD.Helpdesk.Infrastructure", "PhoneRegistryDDD.Helpdesk.Infrastructure\PhoneRegistryDDD.Helpdesk.Infrastructure.csproj", "{796D4587-34D6-4F1E-A872-4C02C70FEC01}"
-EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Availability", "Availability", "{84F035C8-2434-4FCB-B6D7-1EC52F6FB0D5}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Helpdesk", "Helpdesk", "{73443188-0706-48D3-90E4-E332C0220551}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Disposal", "Disposal", "{EC88A983-5CA6-45B1-86C4-1184089C023D}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PhoneRegistryDDD.Helpdesk.Infrastructure", "PhoneRegistryDDD.Helpdesk.Infrastructure\PhoneRegistryDDD.Helpdesk.Infrastructure.csproj", "{B313F947-8CE4-4236-B716-AD337D053ECE}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -53,10 +53,10 @@ Global
 		{64EA9638-89CE-4108-8534-FF8E7EEF2F44}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{64EA9638-89CE-4108-8534-FF8E7EEF2F44}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{64EA9638-89CE-4108-8534-FF8E7EEF2F44}.Release|Any CPU.Build.0 = Release|Any CPU
-		{796D4587-34D6-4F1E-A872-4C02C70FEC01}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{796D4587-34D6-4F1E-A872-4C02C70FEC01}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{796D4587-34D6-4F1E-A872-4C02C70FEC01}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{796D4587-34D6-4F1E-A872-4C02C70FEC01}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B313F947-8CE4-4236-B716-AD337D053ECE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B313F947-8CE4-4236-B716-AD337D053ECE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B313F947-8CE4-4236-B716-AD337D053ECE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B313F947-8CE4-4236-B716-AD337D053ECE}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -68,7 +68,7 @@ Global
 		{E6053089-BF2C-4F81-8820-8C174F513D5C} = {EC88A983-5CA6-45B1-86C4-1184089C023D}
 		{24B487B0-BBA4-437A-AA41-DD49B107C52D} = {73443188-0706-48D3-90E4-E332C0220551}
 		{64EA9638-89CE-4108-8534-FF8E7EEF2F44} = {73443188-0706-48D3-90E4-E332C0220551}
-		{796D4587-34D6-4F1E-A872-4C02C70FEC01} = {73443188-0706-48D3-90E4-E332C0220551}
+		{B313F947-8CE4-4236-B716-AD337D053ECE} = {73443188-0706-48D3-90E4-E332C0220551}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {37D5279A-0D15-4FFF-B9F8-25BC6B1E8E80}
