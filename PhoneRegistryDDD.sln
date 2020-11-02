@@ -25,6 +25,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PhoneRegistryDDD.Helpdesk.I
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PhoneRegistryDDD.API", "PhoneRegistryDDD.API\PhoneRegistryDDD.API.csproj", "{19BAD04B-6CF6-4324-8756-102F38102520}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PhoneRegistryDDD.Availability.Infrastructure", "PhoneRegistryDDD.Availability.Infrastructure\PhoneRegistryDDD.Availability.Infrastructure.csproj", "{100F30A7-9DCA-4859-9D61-364588A936A0}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -63,6 +65,10 @@ Global
 		{19BAD04B-6CF6-4324-8756-102F38102520}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{19BAD04B-6CF6-4324-8756-102F38102520}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{19BAD04B-6CF6-4324-8756-102F38102520}.Release|Any CPU.Build.0 = Release|Any CPU
+		{100F30A7-9DCA-4859-9D61-364588A936A0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{100F30A7-9DCA-4859-9D61-364588A936A0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{100F30A7-9DCA-4859-9D61-364588A936A0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{100F30A7-9DCA-4859-9D61-364588A936A0}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -75,6 +81,7 @@ Global
 		{24B487B0-BBA4-437A-AA41-DD49B107C52D} = {73443188-0706-48D3-90E4-E332C0220551}
 		{64EA9638-89CE-4108-8534-FF8E7EEF2F44} = {73443188-0706-48D3-90E4-E332C0220551}
 		{B313F947-8CE4-4236-B716-AD337D053ECE} = {73443188-0706-48D3-90E4-E332C0220551}
+		{100F30A7-9DCA-4859-9D61-364588A936A0} = {84F035C8-2434-4FCB-B6D7-1EC52F6FB0D5}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {37D5279A-0D15-4FFF-B9F8-25BC6B1E8E80}
