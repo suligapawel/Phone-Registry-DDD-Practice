@@ -1,7 +1,6 @@
 ﻿using NUnit.Framework;
 using PhoneRegistryDDD.Disposal.Core.Entities;
 using PhoneRegistryDDD.Disposal.Core.Exceptions;
-using PhoneRegistryDDD.Disposal.Core.ValueObjects;
 using System;
 using System.Collections.Generic;
 

@@ -28,12 +28,12 @@ namespace PhoneRegistryDDD.Availability.Core.Entities
         public static Assortment New() => new Assortment(Guid.NewGuid(), new Block[2]);
         public static Assortment FromSnapshot(Guid id, Block[] blocks) => new Assortment(id, blocks);
 
-        public bool BlockTemporaryFor(Owner employee)
+        public bool BlockTemporaryFor(Owner owner)
         {
             if (HasActiveBlocks())
                 return false;
 
-            _blocks[TEMPORARY_BLOCK_INDEX] = Block.Temporary(employee);
+            _blocks[TEMPORARY_BLOCK_INDEX] = Block.Temporary(owner);
             return true;
         }
 

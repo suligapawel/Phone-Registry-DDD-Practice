@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace PhoneRegistryDDD.Disposal.Core.ValueObjects
+namespace PhoneRegistryDDD.Disposal.Core.Entities
 {
     public class PurchasedDevice
     {
