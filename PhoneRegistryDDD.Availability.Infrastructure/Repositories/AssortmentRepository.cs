@@ -6,16 +6,10 @@ using System.Threading.Tasks;
 
 namespace PhoneRegistryDDD.Availability.Infrastructure.Repositories
 {
+    //TODO
     public class AssortmentRepository : IAssortmentRepository
     {
-        public Task<IEnumerable<Assortment>> GetFewBy(IEnumerable<Guid> ids)
-        {
-            throw new NotImplementedException();
-        }
-
-        public Task<bool> UpdateFew(IEnumerable<Assortment> assortments)
-        {
-            throw new NotImplementedException();
-        }
+        public async Task<IEnumerable<Assortment>> GetFewBy(IEnumerable<Guid> ids) => new Assortment[] { Assortment.New() };
+        public async Task<bool> UpdateFew(IEnumerable<Assortment> assortments) => true;
     }
 }

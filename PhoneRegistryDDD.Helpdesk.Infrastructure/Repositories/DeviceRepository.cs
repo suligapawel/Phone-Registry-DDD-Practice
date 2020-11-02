@@ -5,16 +5,10 @@ using System.Threading.Tasks;
 
 namespace PhoneRegistryDDD.Helpdesk.Infrastructure.Repositories
 {
+    //TODO
     public class DeviceRepository : IDeviceRepository
     {
-        public Task<Device> GetBy(Guid id)
-        {
-            throw new NotImplementedException();
-        }
-
-        public Task<bool> Update(Device device)
-        {
-            throw new NotImplementedException();
-        }
+        public async Task<Device> GetBy(Guid id) => new Smartphone(Guid.NewGuid());
+        public async Task<bool> Update(Device device) => true;
     }
 }

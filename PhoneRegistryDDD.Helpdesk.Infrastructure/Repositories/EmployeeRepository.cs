@@ -5,16 +5,10 @@ using System.Threading.Tasks;
 
 namespace PhoneRegistryDDD.Helpdesk.Infrastructure.Repositories
 {
+    //TODO
     public class EmployeeRepository : IEmployeeRepository
     {
-        public Task<Employee> GetBy(Guid id)
-        {
-            throw new NotImplementedException();
-        }
-
-        public Task<bool> Update(Employee employee)
-        {
-            throw new NotImplementedException();
-        }
+        public async Task<Employee> GetBy(Guid id) => Employee.New(Guid.NewGuid());
+        public async Task<bool> Update(Employee employee) => true;
     }
 }
