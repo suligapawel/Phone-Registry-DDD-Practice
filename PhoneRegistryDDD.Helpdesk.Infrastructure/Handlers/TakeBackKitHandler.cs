@@ -15,21 +15,17 @@ namespace PhoneRegistryDDD.Helpdesk.Infrastructure.Handlers
     {
         private readonly IMediator _mediator;
         private readonly IEmployeeRepository _employeeRepo;
-        private readonly IDeviceRepository _deviceRepo;
 
-        public TakeBackKitHandler(IMediator mediator,
-            IEmployeeRepository employeeRepository,
-            IDeviceRepository deviceRepository)
+        public TakeBackKitHandler(IMediator mediator, IEmployeeRepository employeeRepository)
         {
             _mediator = mediator;
             _employeeRepo = employeeRepository;
-            _deviceRepo = deviceRepository;
         }
 
         public async Task<bool> Handle(TakeBackKitCommand request, CancellationToken cancellationToken)
         {
-            Employee employee = await _employeeRepo.GetBy(request.EmployeeId);
-            Device deviceToReturn = await _deviceRepo.GetBy(request.DeviceId);
+            Employee employee = await _employeeRepo.GetBy(request.EmployeeId) ?? Employee.New(Guid.NewGuid());
+            Device deviceToReturn = new Smartphone(request.DeviceId); // TODO: Factory
 
             ReturnedDevice result = employee.Return(deviceToReturn);
             if (result == null) return false;
