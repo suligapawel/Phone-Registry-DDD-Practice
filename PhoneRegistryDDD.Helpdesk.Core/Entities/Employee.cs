@@ -8,19 +8,24 @@ namespace PhoneRegistryDDD.Helpdesk.Core.Entities
 {
     public class Employee
     {
-        public Guid Id { get; }
+        public Guid Id { get; private set; }
 
-        private readonly ICollection<SimCard> _simCards;
-        private SimCard _freeSimCard => _simCards.FirstOrDefault(sim => sim.IsFree());
+        private readonly List<SimCard> _simCards = new();
+        public IReadOnlyCollection<SimCard> SimCards => _simCards.AsReadOnly();
+        private SimCard _freeSimCard => _simCards.Find(sim => sim.IsFree());
 
-        public Employee(Guid id, ICollection<SimCard> simCards)
+
+        [Obsolete("For EF", true)]
+        public Employee() { }
+
+        public Employee(Guid id, List<SimCard> simCards)
         {
             Id = id;
             _simCards = simCards;
         }
 
         public static Employee New(Guid id) => new Employee(id, new List<SimCard>());
-        public static Employee With(Guid id, ICollection<SimCard> simCards) => new Employee(id, simCards);
+        public static Employee With(Guid id, List<SimCard> simCards) => new Employee(id, simCards);
 
         public bool TakeNew(SimCard simCard)
         {
@@ -63,7 +68,7 @@ namespace PhoneRegistryDDD.Helpdesk.Core.Entities
 
         private SimCard GetSimCardWith(Device device)
         {
-            return _simCards.FirstOrDefault(sim => sim.Has(device));
+            return _simCards.Find(sim => sim.Has(device));
         }
     }
 }

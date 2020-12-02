@@ -6,9 +6,11 @@ namespace PhoneRegistryDDD.Helpdesk.Core.Entities
 {
     public sealed class SimCard
     {
-        public Guid Id { get; }
+        public Guid Id { get; private set; }
+        public Device Device { get; private set; }
 
-        private Device _device;
+        [Obsolete("For EF", true)]
+        public SimCard() { }
 
         private SimCard(Guid id)
         {
@@ -17,7 +19,7 @@ namespace PhoneRegistryDDD.Helpdesk.Core.Entities
 
         private SimCard(Guid id, Device device) : this(id)
         {
-            _device = device;
+            Device = device;
         }
 
         public static SimCard Free(Guid id) => new SimCard(id);
@@ -25,12 +27,12 @@ namespace PhoneRegistryDDD.Helpdesk.Core.Entities
 
         internal bool IsFree()
         {
-            return _device == null;
+            return Device == null;
         }
 
         internal void SetDevice(Device device)
         {
-            _device = device;
+            Device = device;
         }
 
         internal bool HasDeviceOfSameTypeAs(Device device)
@@ -38,7 +40,7 @@ namespace PhoneRegistryDDD.Helpdesk.Core.Entities
             if (IsFree())
                 return false;
 
-            return _device.IsSameTypeAs(device);
+            return Device.IsSameTypeAs(device);
         }
 
         internal bool Has(Device device)
@@ -46,9 +48,9 @@ namespace PhoneRegistryDDD.Helpdesk.Core.Entities
             if (IsFree())
                 return false;
 
-            return _device.Equals(device);
+            return Device.Equals(device);
         }
 
-        public SimSnapshot ToSnapshot() => new SimSnapshot(Id, _device.Id);
+        public SimSnapshot ToSnapshot() => new SimSnapshot(Id, Device.Id);
     }
 }

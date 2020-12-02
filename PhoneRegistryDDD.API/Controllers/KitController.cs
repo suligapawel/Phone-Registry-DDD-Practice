@@ -17,7 +17,7 @@ namespace PhoneRegistryDDD.API.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> TakeBack(TakeBackKitCommand command)
+        public async Task<IActionResult> Post(TakeBackKitCommand command)
         {
             var result = await _mediator.Send(command);
             return Ok(result);
