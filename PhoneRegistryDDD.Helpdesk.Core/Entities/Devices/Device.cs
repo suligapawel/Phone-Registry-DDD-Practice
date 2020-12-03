@@ -9,7 +9,7 @@ namespace PhoneRegistryDDD.Helpdesk.Core.Entities.Devices
         [Obsolete("For EF", true)]
         public Device() { }
 
-        protected Device(Guid id)
+        public Device(Guid id)
         {
             Id = id;
         }

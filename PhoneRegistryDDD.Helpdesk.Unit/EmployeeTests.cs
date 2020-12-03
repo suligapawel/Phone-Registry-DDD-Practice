@@ -35,7 +35,7 @@ namespace PhoneRegistryDDD.HelpdeskTests
         [Test]
         public void When_EmployeeHasAllSimCardsOccupied_then_EmployeeCantTakeNewSimCard()
         {
-            SimCard occupiedSimCard = SimCard.With(_anySimId, AnySmartphone());
+            SimCard occupiedSimCard = SimCard.With(_anySimId, AnyDevice());
             Employee employee = Employee.With(Guid.NewGuid(), new List<SimCard> { occupiedSimCard });
 
             bool result = employee.TakeNew(NewSimCard());
@@ -59,7 +59,7 @@ namespace PhoneRegistryDDD.HelpdeskTests
         [Test]
         public void When_EmployeeHasFreeSimCard_then_TakeNewDevice()
         {
-            Device device = AnySmartphone();
+            Device device = AnyDevice();
             SimCard freeSimCard = NewSimCard();
             Employee employee = Employee.With(Guid.NewGuid(), new List<SimCard> { freeSimCard });
 
@@ -72,8 +72,8 @@ namespace PhoneRegistryDDD.HelpdeskTests
         [Test]
         public void When_EmployeeHasNotFreeSimCard_then_EmployeeCantTakeNewDevice()
         {
-            Device device = AnySmartphone();
-            SimCard occupiedSimCard = SimCard.With(_anySimId, AnySmartphone());
+            Device device = AnyDevice();
+            SimCard occupiedSimCard = SimCard.With(_anySimId, AnyDevice());
             Employee employee = Employee.With(Guid.NewGuid(), new List<SimCard> { occupiedSimCard });
 
             bool result = employee.TakeNew(device);
@@ -84,8 +84,8 @@ namespace PhoneRegistryDDD.HelpdeskTests
         [Test]
         public void When_EmployeeHasSameTypeOfDevice_then_EmployeeCantTakeNewDevice()
         {
-            Device device = AnySmartphone();
-            SimCard occupiedSimCard = SimCard.With(_anySimId, AnySmartphone());
+            Device device = AnyDevice();
+            SimCard occupiedSimCard = SimCard.With(_anySimId, AnyDevice());
             SimCard freeSimCard = NewSimCard();
             Employee employee = Employee.With(Guid.NewGuid(), new List<SimCard> { occupiedSimCard, freeSimCard });
 
@@ -97,7 +97,7 @@ namespace PhoneRegistryDDD.HelpdeskTests
         [Test]
         public void When_EmployeeReturnDevice_thenReturnAlsoSimCard()
         {
-            Device anyDevice = AnySmartphone();
+            Device anyDevice = AnyDevice();
             SimCard occupiedSimCard = SimCard.With(_anySimId, anyDevice);
             Employee employee = Employee.With(_anyEmployeeId, new List<SimCard> { occupiedSimCard });
 
@@ -109,7 +109,7 @@ namespace PhoneRegistryDDD.HelpdeskTests
         [Test]
         public void When_EmployeeTryReturnDeviceThatDoesNotExists_then_EmployeeCantReturnsDevice()
         {
-            Device anyDevice = AnySmartphone();
+            Device anyDevice = AnyDevice();
             SimCard freeSimCard = SimCard.Free(_anySimId);
             Employee employee = Employee.With(_anyEmployeeId, new List<SimCard> { freeSimCard });
 
@@ -120,6 +120,6 @@ namespace PhoneRegistryDDD.HelpdeskTests
         }
 
         private SimCard NewSimCard() => SimCard.Free(_anySimId);
-        private Device AnySmartphone() => new Smartphone(_anyDeviceId);
+        private Device AnyDevice() => new Device(_anyDeviceId);
     }
 }
