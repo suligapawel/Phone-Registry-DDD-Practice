@@ -26,6 +26,9 @@ namespace PhoneRegistryDDD.Helpdesk.Infrastructure.Repositories
         }
 
         public async Task<bool> Update(Employee employee)
-            => (await _dbContext.SaveChangesAsync()) > 0;
+        {
+            _dbContext.Employees.Update(employee);
+            return (await _dbContext.SaveChangesAsync()) > 0;
+        }
     }
 }

@@ -25,7 +25,7 @@ namespace PhoneRegistryDDD.Helpdesk.Infrastructure.Handlers
         public async Task<bool> Handle(TakeBackKitCommand request, CancellationToken cancellationToken)
         {
             Employee employee = await _employeeRepo.GetBy(request.EmployeeId) ?? Employee.New(Guid.NewGuid());
-            Device deviceToReturn = new Smartphone(request.DeviceId); // TODO: Factory
+            Device deviceToReturn = new Device(request.DeviceId);
 
             ReturnedDevice result = employee.Return(deviceToReturn);
             if (result == null) return false;

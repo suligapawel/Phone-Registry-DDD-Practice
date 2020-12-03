@@ -6,7 +6,6 @@ using PhoneRegistryDDD.Helpdesk.Core.Services.Devices.Policies;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 
 namespace PhoneRegistryDDD.HelpdeskTests.Services.DeviceChoicer
 {
@@ -46,8 +45,8 @@ namespace PhoneRegistryDDD.HelpdeskTests.Services.DeviceChoicer
 
         private IEnumerable<DeviceToChoice> AnyCache() => new List<DeviceToChoice>
         {
-            new DeviceToChoice(_anyGuid, DeviceClass.Premium, typeof(Smartphone)),
-            new DeviceToChoice(_anyOtherGuid, DeviceClass.VIP, typeof(Smartphone)),
+            new DeviceToChoice(_anyGuid, DeviceClass.Premium, typeof(Device)),
+            new DeviceToChoice(_anyOtherGuid, DeviceClass.VIP, typeof(Device)),
         };
     }
 

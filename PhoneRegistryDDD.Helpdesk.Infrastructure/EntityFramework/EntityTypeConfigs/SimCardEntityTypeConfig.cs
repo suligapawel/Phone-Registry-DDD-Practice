@@ -1,7 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using PhoneRegistryDDD.Helpdesk.Core.Entities;
-using PhoneRegistryDDD.Helpdesk.Core.Entities.Devices;
 
 namespace PhoneRegistryDDD.Helpdesk.Infrastructure.EntityFramework.EntityTypeConfigs
 {
@@ -12,8 +11,7 @@ namespace PhoneRegistryDDD.Helpdesk.Infrastructure.EntityFramework.EntityTypeCon
             builder.HasKey(x => x.Id);
 
             builder.Ignore(x => x.Device);
-            builder.OwnsOne(x => ((Smartphone)x.Device), x => x.ToTable("Smartphones", "helpdesk"));
-
+            builder.OwnsOne(x => x.Device, a => a.ToTable("Devices"));
             builder.ToTable("Simcards", "helpdesk");
         }
     }
