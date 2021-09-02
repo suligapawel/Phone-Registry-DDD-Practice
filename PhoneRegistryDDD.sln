@@ -41,6 +41,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PhoneRegistryDDD.Availabili
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PhoneRegistryDDD.Availability.Application", "PhoneRegistryDDD.Availability.Application\PhoneRegistryDDD.Availability.Application.csproj", "{7660C2B0-B784-4FEB-8691-06F693B8262E}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Services", "Services", "{7156A474-0749-45F0-A6C4-D522E9C6DC4B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PhoneRegistryDDD.Orchestrating", "PhoneRegistryDDD.Orchestrating\PhoneRegistryDDD.Orchestrating.csproj", "{687FAC2A-21FC-4670-B88B-34BB2579817C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -107,6 +111,10 @@ Global
 		{7660C2B0-B784-4FEB-8691-06F693B8262E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7660C2B0-B784-4FEB-8691-06F693B8262E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7660C2B0-B784-4FEB-8691-06F693B8262E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{687FAC2A-21FC-4670-B88B-34BB2579817C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{687FAC2A-21FC-4670-B88B-34BB2579817C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{687FAC2A-21FC-4670-B88B-34BB2579817C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{687FAC2A-21FC-4670-B88B-34BB2579817C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -126,6 +134,7 @@ Global
 		{DDE5C383-79B5-46F1-A80E-1A9FC6CCBFAE} = {73443188-0706-48D3-90E4-E332C0220551}
 		{BB7F5D33-DCD7-4D58-A4A7-BAB6A6D0FC8B} = {84F035C8-2434-4FCB-B6D7-1EC52F6FB0D5}
 		{7660C2B0-B784-4FEB-8691-06F693B8262E} = {84F035C8-2434-4FCB-B6D7-1EC52F6FB0D5}
+		{687FAC2A-21FC-4670-B88B-34BB2579817C} = {7156A474-0749-45F0-A6C4-D522E9C6DC4B}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {37D5279A-0D15-4FFF-B9F8-25BC6B1E8E80}

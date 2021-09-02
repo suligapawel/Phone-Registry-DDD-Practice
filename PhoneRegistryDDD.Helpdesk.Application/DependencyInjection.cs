@@ -1,6 +1,7 @@
 using System.Runtime.CompilerServices;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using PhoneRegistryDDD.Helpdesk.Application.Events;
 using PhoneRegistryDDD.Helpdesk.Application.Handlers;
 using PhoneRegistryDDD.Helpdesk.Core.Commands;
 using PhoneRegistryDDD.Shared.Abstractions.Commands;
@@ -13,7 +14,7 @@ namespace PhoneRegistryDDD.Helpdesk.Application
     {
         public static IServiceCollection AddApplication(this IServiceCollection services, IConfiguration config)
         {
-            return services.AddScoped<ICommandHandler<TakeBackKitCommand, bool>, TakeBackKitHandler>();
+            return services.AddScoped<ICommandHandler<TakeBackKitCommand, KitReturned>, TakeBackKitHandler>();
         }
     }
 }

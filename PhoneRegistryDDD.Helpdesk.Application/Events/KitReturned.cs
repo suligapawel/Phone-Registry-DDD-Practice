@@ -1,13 +1,13 @@
 ﻿using System;
 
-namespace PhoneRegistryDDD.Helpdesk.Core.Events
+namespace PhoneRegistryDDD.Helpdesk.Application.Events
 {
-    public class ReturnedDevice
+    public class KitReturned
     {
         public Guid DeviceId { get; }
         public Guid SimCardId { get; }
 
-        public ReturnedDevice(Guid employeeId, Guid deviceId, Guid simCardId)
+        public KitReturned(Guid deviceId, Guid simCardId)
         {
             DeviceId = deviceId;
             SimCardId = simCardId;

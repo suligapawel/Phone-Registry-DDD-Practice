@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
-using System.Threading;
+using System.Linq;
 using System.Threading.Tasks;
+using PhoneRegistryDDD.Availability.Application.Events;
 using PhoneRegistryDDD.Availability.Core.Commands;
 using PhoneRegistryDDD.Availability.Core.Entities;
 using PhoneRegistryDDD.Availability.Core.Repositories;
@@ -8,7 +9,7 @@ using PhoneRegistryDDD.Shared.Abstractions.Commands;
 
 namespace PhoneRegistryDDD.Availability.Application.Handlers
 {
-    public class UnblockAssortmentHandler : ICommandHandler<UnblockAssortmentCommand>
+    public class UnblockAssortmentHandler : ICommandHandler<UnblockAssortmentCommand, AssortmentUnblocked>
     {
         private readonly IAssortmentRepository _assortmentRepo;
 
@@ -17,16 +18,25 @@ namespace PhoneRegistryDDD.Availability.Application.Handlers
             _assortmentRepo = assortmentRepository;
         }
 
-        public async Task Handle(UnblockAssortmentCommand notification)
+        public async Task<AssortmentUnblocked> Handle(UnblockAssortmentCommand command)
         {
-            IEnumerable<Assortment> assortments = await _assortmentRepo.GetFewBy(notification.Ids);
+            List<bool> unblockedAssortments = new List<bool>();
+            IEnumerable<Assortment> assortments = (await _assortmentRepo.GetFewBy(command.Ids)).ToList();
 
             foreach (var assortment in assortments)
             {
-                assortment.Unblock();
+                unblockedAssortments.Add(assortment.Unblock());
             }
 
-            await _assortmentRepo.UpdateFew(assortments);
+            bool unblockedAllAssortments = unblockedAssortments.Count.Equals(assortments.Count());
+
+            if (!unblockedAllAssortments) return null;
+
+            //TODO: remove null
+            bool updateResult = await _assortmentRepo.UpdateFew(assortments);
+            return updateResult
+                ? new AssortmentUnblocked(command.Ids.ToArray())
+                : null;
         }
     }
 }
