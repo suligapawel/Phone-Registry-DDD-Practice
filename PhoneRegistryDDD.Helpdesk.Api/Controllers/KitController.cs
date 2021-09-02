@@ -1,7 +1,7 @@
 ﻿using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using PhoneRegistryDDD.Helpdesk.Core.Commands;
-using PhoneRegistryDDD.Shared.Abstractions.Commands;
+using PhoneRegistryDDD.Orchestrating.Abstractions.Kit;
 
 namespace PhoneRegistryDDD.Helpdesk.Api.Controllers
 {
@@ -9,18 +9,17 @@ namespace PhoneRegistryDDD.Helpdesk.Api.Controllers
     [Route("[controller]")]
     public class KitController : ControllerBase
     {
-        //TODO: Change to facade
-        private readonly ICommandHandler<TakeBackKitCommand, bool> _handler;
+        private readonly ITakeBackKitFacade _takeBackKitFacade;
 
-        public KitController(ICommandHandler<TakeBackKitCommand, bool> handler)
+        public KitController(ITakeBackKitFacade takeBackKitFacade)
         {
-            _handler = handler;
+            _takeBackKitFacade = takeBackKitFacade;
         }
         
         [HttpPost]
         public async Task<IActionResult> Post(TakeBackKitCommand command)
         {
-            var result = await _handler.Handle(command);
+            var result = await _takeBackKitFacade.TakeBack(command);
             return Ok(result);
         }
     }

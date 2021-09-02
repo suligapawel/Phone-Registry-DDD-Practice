@@ -4,11 +4,12 @@ using PhoneRegistryDDD.Availability.Application.Events;
 using PhoneRegistryDDD.Availability.Core.Commands;
 using PhoneRegistryDDD.Helpdesk.Application.Events;
 using PhoneRegistryDDD.Helpdesk.Core.Commands;
+using PhoneRegistryDDD.Orchestrating.Abstractions.Kit;
 using PhoneRegistryDDD.Shared.Abstractions.Commands;
 
 namespace PhoneRegistryDDD.Orchestrating.Kit
 {
-    public class TakeBackKitService
+    public class TakeBackKitService : ITakeBackKitFacade
     {
         private readonly ICommandHandler<TakeBackKitCommand, KitReturned> _takeBackKitHandler;
         private readonly ICommandHandler<UnblockAssortmentCommand, AssortmentUnblocked> _unlockAssortmentHandler;

@@ -7,6 +7,7 @@
     <ItemGroup>
       <ProjectReference Include="..\PhoneRegistryDDD.Helpdesk.Application\PhoneRegistryDDD.Helpdesk.Application.csproj" />
       <ProjectReference Include="..\PhoneRegistryDDD.Helpdesk.Infrastructure\PhoneRegistryDDD.Helpdesk.Infrastructure.csproj" />
+      <ProjectReference Include="..\PhoneRegistryDDD.Orchestrating.Abstractions\PhoneRegistryDDD.Orchestrating.Abstractions.csproj" />
     </ItemGroup>
 
 </Project>

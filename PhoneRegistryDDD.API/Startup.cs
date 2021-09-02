@@ -5,6 +5,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using PhoneRegistryDDD.Availability.Api;
 using PhoneRegistryDDD.Helpdesk.Api;
+using PhoneRegistryDDD.Orchestrating;
 
 namespace PhoneRegistryDDD.API
 {
@@ -23,7 +24,8 @@ namespace PhoneRegistryDDD.API
             services.AddControllers();
             services
                 .AddAvailability(Configuration)
-                .AddHelpdesk(Configuration);
+                .AddHelpdesk(Configuration)
+                .AddOrchestrating();
         }
         
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
