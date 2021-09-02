@@ -5,8 +5,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="MediatR" Version="9.0.0" />
-    <PackageReference Include="MediatR.Extensions.Microsoft.DependencyInjection" Version="9.0.0" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="5.0.0">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
@@ -19,9 +17,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\PhoneRegistryDDD.Availability.Infrastructure\PhoneRegistryDDD.Availability.Infrastructure.csproj" />
-    <ProjectReference Include="..\PhoneRegistryDDD.Helpdesk.Infrastructure\PhoneRegistryDDD.Helpdesk.Infrastructure.csproj" />
+    <ProjectReference Include="..\PhoneRegistryDDD.Availability.Api\PhoneRegistryDDD.Availability.Api.csproj" />
+    <ProjectReference Include="..\PhoneRegistryDDD.Helpdesk.Api\PhoneRegistryDDD.Helpdesk.Api.csproj" />
   </ItemGroup>
-
 
 </Project>

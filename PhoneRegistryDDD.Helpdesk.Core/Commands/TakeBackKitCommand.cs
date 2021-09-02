@@ -1,9 +1,9 @@
-﻿using MediatR;
-using System;
+﻿using System;
+using PhoneRegistryDDD.Shared.Abstractions.Commands;
 
 namespace PhoneRegistryDDD.Helpdesk.Core.Commands
 {
-    public class TakeBackKitCommand : IRequest<bool>
+    public class TakeBackKitCommand : ICommand
     {
         public Guid EmployeeId { get; set; }
         public Guid DeviceId { get; set; }

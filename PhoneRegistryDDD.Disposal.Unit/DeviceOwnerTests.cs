@@ -1,10 +1,10 @@
-﻿using NUnit.Framework;
+﻿using System;
+using System.Collections.Generic;
+using NUnit.Framework;
 using PhoneRegistryDDD.Disposal.Core.Entities;
 using PhoneRegistryDDD.Disposal.Core.Exceptions;
-using System;
-using System.Collections.Generic;
 
-namespace PhoneRegistryDDD.DisposalTests
+namespace PhoneRegistryDDD.Disposal.Unit
 {
     internal class DeviceOwnerTests
     {
@@ -19,8 +19,8 @@ namespace PhoneRegistryDDD.DisposalTests
             var guid = Guid.NewGuid();
             _anyUsedDevice = UsedDevice.UsedSince(guid, new DateTime(2018, 1, 1));
             _samePurchasedDeviceAsTheUsedOne = new PurchasedDevice(guid);
-            _usedDevices = new List<UsedDevice> { _anyUsedDevice };
-            _purchasedDevices = new List<PurchasedDevice> { _samePurchasedDeviceAsTheUsedOne };
+            _usedDevices = new List<UsedDevice> {_anyUsedDevice};
+            _purchasedDevices = new List<PurchasedDevice> {_samePurchasedDeviceAsTheUsedOne};
         }
 
         [Test]
@@ -48,7 +48,8 @@ namespace PhoneRegistryDDD.DisposalTests
         [Test]
         public void When_OwnerHasBothPurchasedAndUsedDevice_then_ThrowCannotUsePurchasedDeviceException()
         {
-            Assert.Catch<CannotUsePurchasedDeviceException>(() => DeviceOwner.WithPurchasedHistory(Guid.NewGuid(), _usedDevices, _purchasedDevices));
+            Assert.Catch<CannotUsePurchasedDeviceException>(() =>
+                DeviceOwner.WithPurchasedHistory(Guid.NewGuid(), _usedDevices, _purchasedDevices));
         }
 
         [Test]

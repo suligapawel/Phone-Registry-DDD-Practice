@@ -1,10 +1,10 @@
-﻿using MediatR;
-using System;
+﻿using System;
 using System.Collections.Generic;
+using PhoneRegistryDDD.Shared.Abstractions.Commands;
 
 namespace PhoneRegistryDDD.Availability.Core.Commands
 {
-    public class UnblockAssortmentCommand : INotification
+    public class UnblockAssortmentCommand : ICommand
     {
         public IEnumerable<Guid> Ids { get; }
 

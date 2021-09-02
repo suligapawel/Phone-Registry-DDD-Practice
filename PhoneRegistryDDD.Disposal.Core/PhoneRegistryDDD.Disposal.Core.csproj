@@ -5,7 +5,15 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="ValueObjects\" />
+    <Compile Remove="ValueObjects\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Remove="ValueObjects\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Remove="ValueObjects\**" />
   </ItemGroup>
 
 </Project>

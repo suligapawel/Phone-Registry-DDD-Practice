@@ -1,14 +1,14 @@
-﻿using MediatR;
+﻿using System.Collections.Generic;
+using System.Threading;
+using System.Threading.Tasks;
 using PhoneRegistryDDD.Availability.Core.Commands;
 using PhoneRegistryDDD.Availability.Core.Entities;
 using PhoneRegistryDDD.Availability.Core.Repositories;
-using System.Collections.Generic;
-using System.Threading;
-using System.Threading.Tasks;
+using PhoneRegistryDDD.Shared.Abstractions.Commands;
 
-namespace PhoneRegistryDDD.Availability.Infrastructure.Handlers
+namespace PhoneRegistryDDD.Availability.Application.Handlers
 {
-    public class UnblockAssortmentHandler : INotificationHandler<UnblockAssortmentCommand>
+    public class UnblockAssortmentHandler : ICommandHandler<UnblockAssortmentCommand>
     {
         private readonly IAssortmentRepository _assortmentRepo;
 
@@ -17,7 +17,7 @@ namespace PhoneRegistryDDD.Availability.Infrastructure.Handlers
             _assortmentRepo = assortmentRepository;
         }
 
-        public async Task Handle(UnblockAssortmentCommand notification, CancellationToken cancellationToken)
+        public async Task Handle(UnblockAssortmentCommand notification)
         {
             IEnumerable<Assortment> assortments = await _assortmentRepo.GetFewBy(notification.Ids);
 
