@@ -1,17 +1,10 @@
-using MediatR;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using PhoneRegistryDDD.Availability.Core.Repositories;
-using PhoneRegistryDDD.Availability.Infrastructure.Handlers;
-using PhoneRegistryDDD.Availability.Infrastructure.Repositories;
-using PhoneRegistryDDD.Helpdesk.Core.Repositories;
-using PhoneRegistryDDD.Helpdesk.Infrastructure.EntityFramework;
-using PhoneRegistryDDD.Helpdesk.Infrastructure.Handlers;
-using PhoneRegistryDDD.Helpdesk.Infrastructure.Repositories;
+using PhoneRegistryDDD.Availability.Api;
+using PhoneRegistryDDD.Helpdesk.Api;
 
 namespace PhoneRegistryDDD.API
 {
@@ -28,27 +21,13 @@ namespace PhoneRegistryDDD.API
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
-            services.AddMediatR(typeof(UnblockAssortmentHandler).Assembly,
-                typeof(TakeBackKitHandler).Assembly);
-
-            AddRepositories(services);
-            AddDbContext(services);
-        }
-
-        private void AddDbContext(IServiceCollection services)
-        {
-            services.AddDbContext<HelpdeskContext>(options => options.UseSqlServer(Configuration.GetConnectionString("helpdesk")));
-        }
-
-        private static void AddRepositories(IServiceCollection services)
-        {
             services
-                .AddScoped<IEmployeeRepository, EmployeeRepository>()
-                .AddScoped<IAssortmentRepository, AssortmentRepository>();
+                .AddAvailability(Configuration)
+                .AddHelpdesk(Configuration);
         }
-
-        // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
+        
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
+        // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         {
             if (env.IsDevelopment())
             {
@@ -61,10 +40,7 @@ namespace PhoneRegistryDDD.API
 
             app.UseAuthorization();
 
-            app.UseEndpoints(endpoints =>
-            {
-                endpoints.MapControllers();
-            });
+            app.UseEndpoints(endpoints => { endpoints.MapControllers(); });
         }
     }
 }
