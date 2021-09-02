@@ -1,0 +1,16 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>net5.0</TargetFramework>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <Folder Include="Controllers" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\PhoneRegistryDDD.Availability.Application\PhoneRegistryDDD.Availability.Application.csproj" />
+      <ProjectReference Include="..\PhoneRegistryDDD.Availability.Infrastructure\PhoneRegistryDDD.Availability.Infrastructure.csproj" />
+    </ItemGroup>
+
+</Project>
