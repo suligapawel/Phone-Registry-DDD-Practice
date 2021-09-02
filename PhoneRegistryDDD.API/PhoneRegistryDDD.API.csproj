@@ -20,6 +20,7 @@
     <ProjectReference Include="..\PhoneRegistryDDD.Availability.Api\PhoneRegistryDDD.Availability.Api.csproj" />
     <ProjectReference Include="..\PhoneRegistryDDD.Helpdesk.Api\PhoneRegistryDDD.Helpdesk.Api.csproj" />
     <ProjectReference Include="..\PhoneRegistryDDD.Orchestrating\PhoneRegistryDDD.Orchestrating.csproj" />
+    <ProjectReference Include="..\PhoneRegistryDDD.Warehouse.Api\PhoneRegistryDDD.Warehouse.Api.csproj" />
   </ItemGroup>
 
 </Project>

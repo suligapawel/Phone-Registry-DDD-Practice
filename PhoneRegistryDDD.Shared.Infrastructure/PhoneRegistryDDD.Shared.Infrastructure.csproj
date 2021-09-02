@@ -8,4 +8,8 @@
       <ProjectReference Include="..\PhoneRegistryDDD.Shared.Abstractions\PhoneRegistryDDD.Shared.Abstractions.csproj" />
     </ItemGroup>
 
+    <ItemGroup>
+      <PackageReference Include="Microsoft.EntityFrameworkCore" Version="5.0.9" />
+    </ItemGroup>
+
 </Project>

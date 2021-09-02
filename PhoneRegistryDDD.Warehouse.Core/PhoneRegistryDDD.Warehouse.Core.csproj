@@ -1,0 +1,16 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>net5.0</TargetFramework>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <Folder Include="DAL\Repositories\Abstracts" />
+      <Folder Include="Services" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\PhoneRegistryDDD.Shared.Infrastructure\PhoneRegistryDDD.Shared.Infrastructure.csproj" />
+    </ItemGroup>
+
+</Project>

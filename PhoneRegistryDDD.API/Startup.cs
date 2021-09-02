@@ -6,6 +6,7 @@ using Microsoft.Extensions.Hosting;
 using PhoneRegistryDDD.Availability.Api;
 using PhoneRegistryDDD.Helpdesk.Api;
 using PhoneRegistryDDD.Orchestrating;
+using PhoneRegistryDDD.Warehouse.Api;
 
 namespace PhoneRegistryDDD.API
 {
@@ -25,6 +26,7 @@ namespace PhoneRegistryDDD.API
             services
                 .AddAvailability(Configuration)
                 .AddHelpdesk(Configuration)
+                .AddWarehouse()
                 .AddOrchestrating();
         }
         
