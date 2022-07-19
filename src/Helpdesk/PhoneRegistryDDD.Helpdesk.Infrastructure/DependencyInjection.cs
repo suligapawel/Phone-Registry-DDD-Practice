@@ -5,6 +5,7 @@ using Microsoft.Extensions.DependencyInjection;
 using PhoneRegistryDDD.Helpdesk.Core.Repositories;
 using PhoneRegistryDDD.Helpdesk.Infrastructure.EntityFramework;
 using PhoneRegistryDDD.Helpdesk.Infrastructure.Repositories;
+using PhoneRegistryDDD.Helpdesk.Infrastructure.Settings;
 
 [assembly: InternalsVisibleTo("PhoneRegistryDDD.Helpdesk.Api")]
 
@@ -14,8 +15,11 @@ internal static class DependencyInjection
 {
     public static IServiceCollection AddInfrastructure(this IServiceCollection services, IConfiguration config)
     {
-        services.AddDbContext<HelpdeskContext>(options =>
-            options.UseSqlServer(config.GetConnectionString("helpdesk")));
+        var dbSettings = config.GetSection("helpdesk:database").Get<DbSettings>();
+
+        services.AddDbContext<HelpdeskDbContext>(options => options.UseNpgsql(
+            dbSettings.ConnectionString,
+            options => options.MigrationsHistoryTable("__MigrationsHistory", dbSettings.Schema)));
 
         services.AddScoped<IEmployeeRepository, EmployeeRepository>();
 

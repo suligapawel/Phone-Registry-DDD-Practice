@@ -13,11 +13,11 @@ internal class EmployeeEntityTypeConfig : IEntityTypeConfiguration<Employee>
 
         builder.Property<DateTime>("CreatedAt")
             .ValueGeneratedOnAdd()
-            .HasDefaultValueSql("GETDATE()");
+            .HasDefaultValueSql("now()");
 
         builder.Property<DateTime>("UpdatedAt")
             .ValueGeneratedOnAddOrUpdate()
-            .HasDefaultValueSql("GETDATE()");
+            .HasDefaultValueSql("now()");
 
         builder.HasMany(x => x.SimCards);
 

@@ -4,11 +4,11 @@ using PhoneRegistryDDD.Helpdesk.Core.Entities;
 
 namespace PhoneRegistryDDD.Helpdesk.Infrastructure.EntityFramework;
 
-public class HelpdeskContext : DbContext
+public class HelpdeskDbContext : DbContext
 {
-    public DbSet<Employee> Employees { get; init; }
+    public DbSet<Employee> Employees => Set<Employee>();
 
-    public HelpdeskContext(DbContextOptions<HelpdeskContext> options)
+    public HelpdeskDbContext(DbContextOptions<HelpdeskDbContext> options)
         : base(options)
     {
     }
@@ -17,7 +17,7 @@ public class HelpdeskContext : DbContext
     {
         ArgumentNullException.ThrowIfNull(modelBuilder);
 
-        modelBuilder.ApplyConfigurationsFromAssembly(typeof(HelpdeskContext).Assembly);
+        modelBuilder.ApplyConfigurationsFromAssembly(typeof(HelpdeskDbContext).Assembly);
         base.OnModelCreating(modelBuilder);
     }
 }

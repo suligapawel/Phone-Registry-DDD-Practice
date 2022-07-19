@@ -9,25 +9,25 @@ namespace PhoneRegistryDDD.Helpdesk.Infrastructure.Repositories;
 
 public class EmployeeRepository : IEmployeeRepository
 {
-    private readonly HelpdeskContext _dbContext;
+    private readonly HelpdeskDbContext _dbDbContext;
 
-    public EmployeeRepository(HelpdeskContext dbContext)
+    public EmployeeRepository(HelpdeskDbContext dbDbContext)
     {
-        _dbContext = dbContext;
+        _dbDbContext = dbDbContext;
     }
 
     public Task<Employee> GetBy(Guid id)
-        => _dbContext.Employees.Include(x => x.SimCards).FirstOrDefaultAsync(x => x.Id == id);
+        => _dbDbContext.Employees.Include(x => x.SimCards).FirstOrDefaultAsync(x => x.Id == id);
 
     public async Task<bool> Add(Employee employee)
     {
-        _dbContext.Employees.Add(employee);
-        return await _dbContext.SaveChangesAsync() > 0;
+        _dbDbContext.Employees.Add(employee);
+        return await _dbDbContext.SaveChangesAsync() > 0;
     }
 
     public async Task<bool> Update(Employee employee)
     {
-        _dbContext.Employees.Update(employee);
-        return await _dbContext.SaveChangesAsync() > 0;
+        _dbDbContext.Employees.Update(employee);
+        return await _dbDbContext.SaveChangesAsync() > 0;
     }
 }

@@ -10,8 +10,8 @@ namespace PhoneRegistryDDD.Helpdesk.Api;
 
 internal static class DependencyInjection
 {
-    public static IServiceCollection AddHelpdesk(this IServiceCollection services, IConfiguration config) =>
-        services
+    public static IServiceCollection AddHelpdesk(this IServiceCollection services, IConfiguration config)
+        => services
             .AddApplication(config)
             .AddInfrastructure(config);
 }
