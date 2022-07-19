@@ -1,0 +1,17 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>net6.0</TargetFramework>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <PackageReference Include="SuligaPawel.Common.CodeStyle" Version="1.0.0" />
+    </ItemGroup>
+    
+    <ItemGroup>
+        <ProjectReference Include="..\..\Shared\PhoneRegistryDDD.Shared.Infrastructure\PhoneRegistryDDD.Shared.Infrastructure.csproj" />
+        <ProjectReference Include="..\PhoneRegistryDDD.Availability.Application\PhoneRegistryDDD.Availability.Application.csproj" />
+    </ItemGroup>
+
+
+</Project>

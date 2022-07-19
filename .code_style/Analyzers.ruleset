@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<RuleSet Name="Managed Code Custom Rules" ToolsVersion="16.0">
+    <Rules AnalyzerId="Microsoft.Analyzers" RuleNamespace="Microsoft.Analyzers">
+        <Rule Id="CA1014" Action="None"/>                <!-- Mark assemblies with CLSCompliantAttribute-->
+        <Rule Id="CA1032" Action="None"/>                <!-- Implement standard exception constructors -->
+        <Rule Id="CA1303" Action="None"/>                <!-- Do not pass literals as localized parameters -->
+        <Rule Id="CS1591" Action="None"/>                <!-- Missing XML comment for publicly visible type or member 'Type_or_Member' -->
+        <Rule Id="CA1716" Action="None"/>                <!-- Identifiers should not match keywords -->
+        <Rule Id="CA2007" Action="None"/>                <!-- Do not directly await a Task -->
+        <Rule Id="CA2227" Action="None"/>                <!-- Collection properties should be read only -->
+    </Rules>
+    <Rules AnalyzerId="StyleCop.Analyzers" RuleNamespace="StyleCop.Analyzers">
+        <Rule Id="SA1000" Action="None"/>                <!-- The keyword 'new' should be followed by a space. -->
+        <Rule Id="SA0001" Action="None"/>                <!-- XML comment analysis is disabled due to project configuration -->
+        <Rule Id="SA1101" Action="None"/>                <!-- Prefix local calls with this -->
+        <Rule Id="SA1200" Action="None"/>                <!-- Using directive should appear within a namespace declaration -->
+        <Rule Id="SA1201" Action="None"/>                <!-- A constructor should not follow a property -->
+        <Rule Id="SA1204" Action="None"/>                <!-- Static members should appear before non-static members -->
+        <Rule Id="SA1309" Action="None"/>                <!-- Field should not begin with an underscore -->
+        <Rule Id="SA1516" Action="None"/>                <!-- Elements should be separated by blink line -->
+        <Rule Id="SA1633" Action="None"/>                <!-- The file header is missing or not located at the top of the file -->
+    </Rules>
+</RuleSet>

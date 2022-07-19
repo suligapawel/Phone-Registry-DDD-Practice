@@ -1,0 +1,17 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+    <PropertyGroup>
+        <TargetFramework>net6.0</TargetFramework>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <PackageReference Include="SuligaPawel.Common.CodeStyle" Version="1.0.0" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <ProjectReference Include="..\Availability\PhoneRegistryDDD.Availability.Api\PhoneRegistryDDD.Availability.Api.csproj" />
+        <ProjectReference Include="..\Helpdesk\PhoneRegistryDDD.Helpdesk.Api\PhoneRegistryDDD.Helpdesk.Api.csproj" />
+        <ProjectReference Include="..\Services\PhoneRegistryDDD.Orchestrating\PhoneRegistryDDD.Orchestrating.csproj" />
+    </ItemGroup>
+
+</Project>

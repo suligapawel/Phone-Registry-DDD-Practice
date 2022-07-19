@@ -1,0 +1,2 @@
+[/Commands/ICommand.cs]
+dotnet_diagnostic.CA1040.severity = none # Avoid empty interfaces

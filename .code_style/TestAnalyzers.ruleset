@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<RuleSet Name="Managed Code Custom Rules for Test Projects" ToolsVersion="16.0">
+    <Include Path="Analyzers.ruleset" Action="Default"/>
+    <Rules AnalyzerId="Microsoft.Analyzers" RuleNamespace="Microsoft.Analyzers">
+        <Rule Id="CA1707" Action="None"/>				<!-- Identifiers should not contain underscores -->
+    </Rules>
+</RuleSet>

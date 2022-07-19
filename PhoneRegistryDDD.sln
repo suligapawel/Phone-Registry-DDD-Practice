@@ -3,17 +3,17 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30503.244
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PhoneRegistryDDD.Availability.Core", "PhoneRegistryDDD.Availability.Core\PhoneRegistryDDD.Availability.Core.csproj", "{30DDFA58-F088-4803-99A2-4E044AB0DD02}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PhoneRegistryDDD.Availability.Core", "src\Availability\PhoneRegistryDDD.Availability.Core\PhoneRegistryDDD.Availability.Core.csproj", "{30DDFA58-F088-4803-99A2-4E044AB0DD02}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PhoneRegistryDDD.Availability.Unit", "PhoneRegistryDDD.Availability.Unit\PhoneRegistryDDD.Availability.Unit.csproj", "{6EED8800-0EF8-431F-A8EB-D2EDEAF08652}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PhoneRegistryDDD.Availability.Units", "tests\Availability\PhoneRegistryDDD.Availability.Units\PhoneRegistryDDD.Availability.Units.csproj", "{6EED8800-0EF8-431F-A8EB-D2EDEAF08652}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PhoneRegistryDDD.Disposal.Core", "PhoneRegistryDDD.Disposal.Core\PhoneRegistryDDD.Disposal.Core.csproj", "{F4822B16-6559-46D0-AABB-85064434E1C2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PhoneRegistryDDD.Disposal.Core", "src\Disposal\PhoneRegistryDDD.Disposal.Core\PhoneRegistryDDD.Disposal.Core.csproj", "{F4822B16-6559-46D0-AABB-85064434E1C2}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PhoneRegistryDDD.Disposal.Unit", "PhoneRegistryDDD.Disposal.Unit\PhoneRegistryDDD.Disposal.Unit.csproj", "{E6053089-BF2C-4F81-8820-8C174F513D5C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PhoneRegistryDDD.Disposal.Units", "tests\Disposal\PhoneRegistryDDD.Disposal.Units\PhoneRegistryDDD.Disposal.Units.csproj", "{E6053089-BF2C-4F81-8820-8C174F513D5C}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PhoneRegistryDDD.Helpdesk.Core", "PhoneRegistryDDD.Helpdesk.Core\PhoneRegistryDDD.Helpdesk.Core.csproj", "{24B487B0-BBA4-437A-AA41-DD49B107C52D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PhoneRegistryDDD.Helpdesk.Core", "src\Helpdesk\PhoneRegistryDDD.Helpdesk.Core\PhoneRegistryDDD.Helpdesk.Core.csproj", "{24B487B0-BBA4-437A-AA41-DD49B107C52D}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PhoneRegistryDDD.Helpdesk.Unit", "PhoneRegistryDDD.Helpdesk.Unit\PhoneRegistryDDD.Helpdesk.Unit.csproj", "{64EA9638-89CE-4108-8534-FF8E7EEF2F44}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PhoneRegistryDDD.Helpdesk.Units", "tests\Helpdesk\PhoneRegistryDDD.Helpdesk.Units\PhoneRegistryDDD.Helpdesk.Units.csproj", "{64EA9638-89CE-4108-8534-FF8E7EEF2F44}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Availability", "Availability", "{84F035C8-2434-4FCB-B6D7-1EC52F6FB0D5}"
 EndProject
@@ -21,37 +21,45 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Helpdesk", "Helpdesk", "{73
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Disposal", "Disposal", "{EC88A983-5CA6-45B1-86C4-1184089C023D}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PhoneRegistryDDD.Helpdesk.Infrastructure", "PhoneRegistryDDD.Helpdesk.Infrastructure\PhoneRegistryDDD.Helpdesk.Infrastructure.csproj", "{B313F947-8CE4-4236-B716-AD337D053ECE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PhoneRegistryDDD.Helpdesk.Infrastructure", "src\Helpdesk\PhoneRegistryDDD.Helpdesk.Infrastructure\PhoneRegistryDDD.Helpdesk.Infrastructure.csproj", "{B313F947-8CE4-4236-B716-AD337D053ECE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PhoneRegistryDDD.API", "PhoneRegistryDDD.API\PhoneRegistryDDD.API.csproj", "{19BAD04B-6CF6-4324-8756-102F38102520}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PhoneRegistryDDD.API", "src\PhoneRegistryDDD.API\PhoneRegistryDDD.API.csproj", "{19BAD04B-6CF6-4324-8756-102F38102520}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PhoneRegistryDDD.Availability.Infrastructure", "PhoneRegistryDDD.Availability.Infrastructure\PhoneRegistryDDD.Availability.Infrastructure.csproj", "{100F30A7-9DCA-4859-9D61-364588A936A0}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PhoneRegistryDDD.Availability.Infrastructure", "src\Availability\PhoneRegistryDDD.Availability.Infrastructure\PhoneRegistryDDD.Availability.Infrastructure.csproj", "{100F30A7-9DCA-4859-9D61-364588A936A0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PhoneRegistryDDD.Helpdesk.Application", "PhoneRegistryDDD.Helpdesk.Application\PhoneRegistryDDD.Helpdesk.Application.csproj", "{FE7CB9CD-AEA6-41F8-870E-E29B8400AE4A}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PhoneRegistryDDD.Helpdesk.Application", "src\Helpdesk\PhoneRegistryDDD.Helpdesk.Application\PhoneRegistryDDD.Helpdesk.Application.csproj", "{FE7CB9CD-AEA6-41F8-870E-E29B8400AE4A}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Shared", "Shared", "{8C89030C-EE18-4B29-97F3-608D830C79FE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PhoneRegistryDDD.Shared.Abstractions", "PhoneRegistryDDD.Shared.Abstractions\PhoneRegistryDDD.Shared.Abstractions.csproj", "{E14E0543-26E0-4C0B-8ED0-B80D1E408C86}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PhoneRegistryDDD.Shared.Abstractions", "src\Shared\PhoneRegistryDDD.Shared.Abstractions\PhoneRegistryDDD.Shared.Abstractions.csproj", "{E14E0543-26E0-4C0B-8ED0-B80D1E408C86}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PhoneRegistryDDD.Shared.Infrastructure", "PhoneRegistryDDD.Shared.Infrastructure\PhoneRegistryDDD.Shared.Infrastructure.csproj", "{6E8BB58B-A0DB-4DD6-B530-28E08A5BB31E}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PhoneRegistryDDD.Shared.Infrastructure", "src\Shared\PhoneRegistryDDD.Shared.Infrastructure\PhoneRegistryDDD.Shared.Infrastructure.csproj", "{6E8BB58B-A0DB-4DD6-B530-28E08A5BB31E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PhoneRegistryDDD.Helpdesk.Api", "PhoneRegistryDDD.Helpdesk.Api\PhoneRegistryDDD.Helpdesk.Api.csproj", "{DDE5C383-79B5-46F1-A80E-1A9FC6CCBFAE}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PhoneRegistryDDD.Helpdesk.Api", "src\Helpdesk\PhoneRegistryDDD.Helpdesk.Api\PhoneRegistryDDD.Helpdesk.Api.csproj", "{DDE5C383-79B5-46F1-A80E-1A9FC6CCBFAE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PhoneRegistryDDD.Availability.Api", "PhoneRegistryDDD.Availability.Api\PhoneRegistryDDD.Availability.Api.csproj", "{BB7F5D33-DCD7-4D58-A4A7-BAB6A6D0FC8B}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PhoneRegistryDDD.Availability.Api", "src\Availability\PhoneRegistryDDD.Availability.Api\PhoneRegistryDDD.Availability.Api.csproj", "{BB7F5D33-DCD7-4D58-A4A7-BAB6A6D0FC8B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PhoneRegistryDDD.Availability.Application", "PhoneRegistryDDD.Availability.Application\PhoneRegistryDDD.Availability.Application.csproj", "{7660C2B0-B784-4FEB-8691-06F693B8262E}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PhoneRegistryDDD.Availability.Application", "src\Availability\PhoneRegistryDDD.Availability.Application\PhoneRegistryDDD.Availability.Application.csproj", "{7660C2B0-B784-4FEB-8691-06F693B8262E}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Services", "Services", "{7156A474-0749-45F0-A6C4-D522E9C6DC4B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PhoneRegistryDDD.Orchestrating", "PhoneRegistryDDD.Orchestrating\PhoneRegistryDDD.Orchestrating.csproj", "{687FAC2A-21FC-4670-B88B-34BB2579817C}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PhoneRegistryDDD.Orchestrating", "src\Services\PhoneRegistryDDD.Orchestrating\PhoneRegistryDDD.Orchestrating.csproj", "{687FAC2A-21FC-4670-B88B-34BB2579817C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PhoneRegistryDDD.Orchestrating.Abstractions", "PhoneRegistryDDD.Orchestrating.Abstractions\PhoneRegistryDDD.Orchestrating.Abstractions.csproj", "{384E83A2-CA8F-437F-985C-E38F02F6E599}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PhoneRegistryDDD.Orchestrating.Abstractions", "src\Services\PhoneRegistryDDD.Orchestrating.Abstractions\PhoneRegistryDDD.Orchestrating.Abstractions.csproj", "{384E83A2-CA8F-437F-985C-E38F02F6E599}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Warehouse", "Warehouse", "{5CFE9AB1-090D-4A3D-B7EE-CFB417E074C2}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PhoneRegistryDDD.Warehouse.Api", "PhoneRegistryDDD.Warehouse.Api\PhoneRegistryDDD.Warehouse.Api.csproj", "{097210E8-6A6E-4A69-AEB2-D9FAD4E15510}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PhoneRegistryDDD.Warehouse.Core", "src\Warehouse\PhoneRegistryDDD.Warehouse.Core\PhoneRegistryDDD.Warehouse.Core.csproj", "{600FF4C7-B613-41AD-8CDA-AFF937456245}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PhoneRegistryDDD.Warehouse.Core", "PhoneRegistryDDD.Warehouse.Core\PhoneRegistryDDD.Warehouse.Core.csproj", "{600FF4C7-B613-41AD-8CDA-AFF937456245}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{1AF810F4-81B9-427D-9D85-3D2E471E828B}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{81B97044-FB0F-4289-AB5C-A84A246B2B63}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Availability", "Availability", "{D72C5C39-5FD8-4876-9F14-FCD270B531D2}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Helpdesk", "Helpdesk", "{CFAF9513-F208-4FC0-922E-C0B49CB8D487}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Disposal", "Disposal", "{C3E5708B-3F9C-4E8D-AD81-CA5473BAAFE5}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -127,10 +135,6 @@ Global
 		{384E83A2-CA8F-437F-985C-E38F02F6E599}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{384E83A2-CA8F-437F-985C-E38F02F6E599}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{384E83A2-CA8F-437F-985C-E38F02F6E599}.Release|Any CPU.Build.0 = Release|Any CPU
-		{097210E8-6A6E-4A69-AEB2-D9FAD4E15510}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{097210E8-6A6E-4A69-AEB2-D9FAD4E15510}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{097210E8-6A6E-4A69-AEB2-D9FAD4E15510}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{097210E8-6A6E-4A69-AEB2-D9FAD4E15510}.Release|Any CPU.Build.0 = Release|Any CPU
 		{600FF4C7-B613-41AD-8CDA-AFF937456245}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{600FF4C7-B613-41AD-8CDA-AFF937456245}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{600FF4C7-B613-41AD-8CDA-AFF937456245}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -141,11 +145,8 @@ Global
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{30DDFA58-F088-4803-99A2-4E044AB0DD02} = {84F035C8-2434-4FCB-B6D7-1EC52F6FB0D5}
-		{6EED8800-0EF8-431F-A8EB-D2EDEAF08652} = {84F035C8-2434-4FCB-B6D7-1EC52F6FB0D5}
 		{F4822B16-6559-46D0-AABB-85064434E1C2} = {EC88A983-5CA6-45B1-86C4-1184089C023D}
-		{E6053089-BF2C-4F81-8820-8C174F513D5C} = {EC88A983-5CA6-45B1-86C4-1184089C023D}
 		{24B487B0-BBA4-437A-AA41-DD49B107C52D} = {73443188-0706-48D3-90E4-E332C0220551}
-		{64EA9638-89CE-4108-8534-FF8E7EEF2F44} = {73443188-0706-48D3-90E4-E332C0220551}
 		{B313F947-8CE4-4236-B716-AD337D053ECE} = {73443188-0706-48D3-90E4-E332C0220551}
 		{100F30A7-9DCA-4859-9D61-364588A936A0} = {84F035C8-2434-4FCB-B6D7-1EC52F6FB0D5}
 		{FE7CB9CD-AEA6-41F8-870E-E29B8400AE4A} = {73443188-0706-48D3-90E4-E332C0220551}
@@ -156,8 +157,20 @@ Global
 		{7660C2B0-B784-4FEB-8691-06F693B8262E} = {84F035C8-2434-4FCB-B6D7-1EC52F6FB0D5}
 		{687FAC2A-21FC-4670-B88B-34BB2579817C} = {7156A474-0749-45F0-A6C4-D522E9C6DC4B}
 		{384E83A2-CA8F-437F-985C-E38F02F6E599} = {7156A474-0749-45F0-A6C4-D522E9C6DC4B}
-		{097210E8-6A6E-4A69-AEB2-D9FAD4E15510} = {5CFE9AB1-090D-4A3D-B7EE-CFB417E074C2}
 		{600FF4C7-B613-41AD-8CDA-AFF937456245} = {5CFE9AB1-090D-4A3D-B7EE-CFB417E074C2}
+		{84F035C8-2434-4FCB-B6D7-1EC52F6FB0D5} = {1AF810F4-81B9-427D-9D85-3D2E471E828B}
+		{EC88A983-5CA6-45B1-86C4-1184089C023D} = {1AF810F4-81B9-427D-9D85-3D2E471E828B}
+		{73443188-0706-48D3-90E4-E332C0220551} = {1AF810F4-81B9-427D-9D85-3D2E471E828B}
+		{7156A474-0749-45F0-A6C4-D522E9C6DC4B} = {1AF810F4-81B9-427D-9D85-3D2E471E828B}
+		{8C89030C-EE18-4B29-97F3-608D830C79FE} = {1AF810F4-81B9-427D-9D85-3D2E471E828B}
+		{19BAD04B-6CF6-4324-8756-102F38102520} = {1AF810F4-81B9-427D-9D85-3D2E471E828B}
+		{5CFE9AB1-090D-4A3D-B7EE-CFB417E074C2} = {1AF810F4-81B9-427D-9D85-3D2E471E828B}
+		{D72C5C39-5FD8-4876-9F14-FCD270B531D2} = {81B97044-FB0F-4289-AB5C-A84A246B2B63}
+		{6EED8800-0EF8-431F-A8EB-D2EDEAF08652} = {D72C5C39-5FD8-4876-9F14-FCD270B531D2}
+		{CFAF9513-F208-4FC0-922E-C0B49CB8D487} = {81B97044-FB0F-4289-AB5C-A84A246B2B63}
+		{64EA9638-89CE-4108-8534-FF8E7EEF2F44} = {CFAF9513-F208-4FC0-922E-C0B49CB8D487}
+		{C3E5708B-3F9C-4E8D-AD81-CA5473BAAFE5} = {81B97044-FB0F-4289-AB5C-A84A246B2B63}
+		{E6053089-BF2C-4F81-8820-8C174F513D5C} = {C3E5708B-3F9C-4E8D-AD81-CA5473BAAFE5}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {37D5279A-0D15-4FFF-B9F8-25BC6B1E8E80}
