@@ -8,6 +8,7 @@
         <PackageReference Include="Microsoft.Extensions.Configuration.Abstractions" Version="6.0.0" />
         <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="6.0.0" />
         <PackageReference Include="SuligaPawel.Common.CodeStyle" Version="1.0.0" />
+        <PackageReference Include="SuligaPawel.Common.Cqrs" Version="1.0.0" />
     </ItemGroup>
 
     <ItemGroup>

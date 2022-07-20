@@ -1,5 +1,5 @@
 ﻿using System;
-using PhoneRegistryDDD.Shared.Abstractions.Commands;
+using SuligaPawel.Common.CQRS.Commands;
 
 namespace PhoneRegistryDDD.Helpdesk.Core.Commands;
 

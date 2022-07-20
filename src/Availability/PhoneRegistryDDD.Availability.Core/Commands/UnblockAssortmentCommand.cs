@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using PhoneRegistryDDD.Shared.Abstractions.Commands;
+using SuligaPawel.Common.CQRS.Commands;
 
 namespace PhoneRegistryDDD.Availability.Core.Commands;
 

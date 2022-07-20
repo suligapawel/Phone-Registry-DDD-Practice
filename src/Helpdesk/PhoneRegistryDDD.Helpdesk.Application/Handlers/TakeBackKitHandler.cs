@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Threading;
 using System.Threading.Tasks;
 using PhoneRegistryDDD.Helpdesk.Application.Events;
 using PhoneRegistryDDD.Helpdesk.Core.Commands;
@@ -6,11 +7,11 @@ using PhoneRegistryDDD.Helpdesk.Core.Entities;
 using PhoneRegistryDDD.Helpdesk.Core.Entities.Devices;
 using PhoneRegistryDDD.Helpdesk.Core.Events;
 using PhoneRegistryDDD.Helpdesk.Core.Repositories;
-using PhoneRegistryDDD.Shared.Abstractions.Commands;
+using SuligaPawel.Common.CQRS.Commands;
 
 namespace PhoneRegistryDDD.Helpdesk.Application.Handlers;
 
-public class TakeBackKitHandler : ICommandHandler<TakeBackKitCommand, KitReturned>
+public class TakeBackKitHandler : ICommandHandler<TakeBackKitCommand>
 {
     private readonly IEmployeeRepository _employeeRepo;
 
@@ -19,7 +20,7 @@ public class TakeBackKitHandler : ICommandHandler<TakeBackKitCommand, KitReturne
         _employeeRepo = employeeRepository;
     }
 
-    public async Task<KitReturned> Handle(TakeBackKitCommand command)
+    public async Task Handle(TakeBackKitCommand command, CancellationToken cancellationToken)
     {
         ArgumentNullException.ThrowIfNull(command);
 
@@ -29,13 +30,12 @@ public class TakeBackKitHandler : ICommandHandler<TakeBackKitCommand, KitReturne
         var result = employee.Return(deviceToReturn);
         if (result == null)
         {
-            return null;
+            return;
         }
 
         var updateResult = await _employeeRepo.Update(employee);
 
-        // TODO: Refactor return without null
-        return updateResult ? MapToEvent(result) : null;
+        // TODO: publish event
     }
 
     private static KitReturned MapToEvent(ReturnedDevice returnedDevice) => new(returnedDevice.DeviceId, returnedDevice.SimCardId);
