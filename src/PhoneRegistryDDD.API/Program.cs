@@ -2,6 +2,7 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.Hosting;
 using PhoneRegistryDDD.API.Extensions;
 using PhoneRegistryDDD.Shared.Infrastructure;
+using SuligaPawel.Common.Exceptions.Extensions;
 
 var builder = WebApplication.CreateBuilder(args);
 builder.Host.AddModuleSettings();
@@ -15,6 +16,8 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
+
+app.UseExceptionMiddleware();
 
 app.UseRouting();
 

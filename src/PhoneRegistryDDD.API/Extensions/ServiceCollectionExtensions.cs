@@ -14,7 +14,8 @@ public static class ServiceCollectionExtensions
 
         services.AddAvailability(config)
             .AddHelpdesk(config)
-            .AddOrchestrating();
+            .AddOrchestrating()
+            .AddApi();
 
         return services;
     }
