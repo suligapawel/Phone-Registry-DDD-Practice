@@ -11,8 +11,9 @@ public sealed class Assortment
     private const int TemporaryBlockIndex = 0;
     private const int PermanentBlockIndex = 1;
 
-    private readonly Guid _id;
     private readonly Block[] _blocks;
+
+    public Guid Id { get; init; }
 
     private Block TemporaryBlock => _blocks[TemporaryBlockIndex];
     private Block PermanentBlock => _blocks[PermanentBlockIndex];
@@ -24,7 +25,7 @@ public sealed class Assortment
             throw new ToManyBlockException();
         }
 
-        _id = id;
+        Id = id;
         _blocks = new Block[2];
         blocks.CopyTo(_blocks, 0);
     }

@@ -1,13 +1,7 @@
 using System;
+using System.Collections.Generic;
+using SuligaPawel.Common.CQRS.Events;
 
 namespace PhoneRegistryDDD.Availability.Application.Events;
 
-public class AssortmentUnblocked
-{
-    private readonly Guid[] _ids;
-
-    public AssortmentUnblocked(Guid[] ids)
-    {
-        _ids = ids;
-    }
-}
+public record AssortmentUnblocked(IReadOnlyCollection<Guid> AssortmentIds) : IEvent;

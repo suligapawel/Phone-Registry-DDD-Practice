@@ -8,16 +8,19 @@ using PhoneRegistryDDD.Helpdesk.Core.Entities.Devices;
 using PhoneRegistryDDD.Helpdesk.Core.Events;
 using PhoneRegistryDDD.Helpdesk.Core.Repositories;
 using SuligaPawel.Common.CQRS.Commands;
+using SuligaPawel.Common.CQRS.Events.Dispatchers.Sync;
 
 namespace PhoneRegistryDDD.Helpdesk.Application.Handlers;
 
 public class TakeBackKitHandler : ICommandHandler<TakeBackKitCommand>
 {
     private readonly IEmployeeRepository _employeeRepo;
+    private readonly IEventDispatcher _eventDispatcher;
 
-    public TakeBackKitHandler(IEmployeeRepository employeeRepository)
+    public TakeBackKitHandler(IEmployeeRepository employeeRepository, IEventDispatcher eventDispatcher)
     {
         _employeeRepo = employeeRepository;
+        _eventDispatcher = eventDispatcher;
     }
 
     public async Task Handle(TakeBackKitCommand command, CancellationToken cancellationToken)
@@ -33,21 +36,9 @@ public class TakeBackKitHandler : ICommandHandler<TakeBackKitCommand>
             return;
         }
 
-        var updateResult = await _employeeRepo.Update(employee);
-
-        // TODO: publish event
+        await _employeeRepo.Update(employee);
+        await _eventDispatcher.Publish(MapToEvent(result));
     }
 
     private static KitReturned MapToEvent(ReturnedDevice returnedDevice) => new(returnedDevice.DeviceId, returnedDevice.SimCardId);
-
-    // private UnblockAssortmentCommand MapToCommand(ReturnedDevice result)
-    // {
-    //     var assortmentIds = new Guid[]
-    //     {
-    //         result.DeviceId,
-    //         result.SimCardId
-    //     };
-    //
-    //     return new UnblockAssortmentCommand(assortmentIds);
-    // }
 }
