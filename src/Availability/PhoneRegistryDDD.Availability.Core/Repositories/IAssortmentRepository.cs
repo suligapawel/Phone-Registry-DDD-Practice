@@ -7,6 +7,6 @@ namespace PhoneRegistryDDD.Availability.Core.Repositories;
 
 public interface IAssortmentRepository
 {
-    Task<IEnumerable<Assortment>> GetFewBy(IEnumerable<Guid> ids);
+    Task<IReadOnlyCollection<Assortment>> GetFewBy(IEnumerable<Guid> ids);
     Task<bool> UpdateFew(IEnumerable<Assortment> assortments);
 }

@@ -7,6 +7,6 @@ namespace PhoneRegistryDDD.Helpdesk.Core.Repositories;
 public interface IEmployeeRepository
 {
     Task<Employee> GetBy(Guid id);
-    Task<bool> Add(Employee employee);
-    Task<bool> Update(Employee employee);
+    Task Add(Employee employee);
+    Task Update(Employee employee);
 }

@@ -20,6 +20,7 @@
           <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
         </PackageReference>
         <PackageReference Include="SuligaPawel.Common.CodeStyle" Version="1.0.0" />
+        <PackageReference Include="SuligaPawel.Common.EF" Version="1.0.0" />
     </ItemGroup>
 
 </Project>

@@ -2,6 +2,7 @@
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using PhoneRegistryDDD.Helpdesk.Core.Commands;
+using SuligaPawel.Common.CQRS.Commands;
 using SuligaPawel.Common.CQRS.Commands.Dispatchers;
 
 namespace PhoneRegistryDDD.Helpdesk.Api.Controllers;
@@ -11,10 +12,12 @@ namespace PhoneRegistryDDD.Helpdesk.Api.Controllers;
 public class KitController : ControllerBase
 {
     private readonly ICommandDispatcher _commandDispatcher;
+    private readonly ICommandHandler<TakeBackKitCommand> _commandHandler;
 
-    public KitController(ICommandDispatcher commandDispatcher)
+    public KitController(ICommandDispatcher commandDispatcher, ICommandHandler<TakeBackKitCommand> commandHandler)
     {
         _commandDispatcher = commandDispatcher;
+        _commandHandler = commandHandler;
     }
 
     [HttpGet]

@@ -5,13 +5,14 @@
     </PropertyGroup>
 
     <ItemGroup>
-        <PackageReference Include="Npgsql.EntityFrameworkCore.PostgreSQL" Version="6.0.5"/>
-        <PackageReference Include="SuligaPawel.Common.CodeStyle" Version="1.0.0"/>
+        <PackageReference Include="Npgsql.EntityFrameworkCore.PostgreSQL" Version="6.0.5" />
+        <PackageReference Include="SuligaPawel.Common.CodeStyle" Version="1.0.0" />
+        <PackageReference Include="SuligaPawel.Common.EF" Version="1.0.0" />
     </ItemGroup>
 
     <ItemGroup>
-        <ProjectReference Include="..\..\Shared\PhoneRegistryDDD.Shared.Infrastructure\PhoneRegistryDDD.Shared.Infrastructure.csproj"/>
-        <ProjectReference Include="..\PhoneRegistryDDD.Helpdesk.Application\PhoneRegistryDDD.Helpdesk.Application.csproj"/>
+        <ProjectReference Include="..\..\Shared\PhoneRegistryDDD.Shared.Infrastructure\PhoneRegistryDDD.Shared.Infrastructure.csproj" />
+        <ProjectReference Include="..\PhoneRegistryDDD.Helpdesk.Application\PhoneRegistryDDD.Helpdesk.Application.csproj" />
     </ItemGroup>
-    
+
 </Project>

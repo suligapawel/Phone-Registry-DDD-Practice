@@ -19,15 +19,14 @@ public class EmployeeRepository : IEmployeeRepository
     public Task<Employee> GetBy(Guid id)
         => _dbDbContext.Employees.Include(x => x.SimCards).FirstOrDefaultAsync(x => x.Id == id);
 
-    public async Task<bool> Add(Employee employee)
+    public async Task Add(Employee employee)
     {
-        _dbDbContext.Employees.Add(employee);
-        return await _dbDbContext.SaveChangesAsync() > 0;
+        await _dbDbContext.Employees.AddAsync(employee);
     }
 
-    public async Task<bool> Update(Employee employee)
+    public Task Update(Employee employee)
     {
         _dbDbContext.Employees.Update(employee);
-        return await _dbDbContext.SaveChangesAsync() > 0;
+        return Task.CompletedTask;
     }
 }

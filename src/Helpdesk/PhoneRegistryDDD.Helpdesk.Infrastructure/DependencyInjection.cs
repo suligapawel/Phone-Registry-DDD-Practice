@@ -6,6 +6,7 @@ using PhoneRegistryDDD.Helpdesk.Core.Repositories;
 using PhoneRegistryDDD.Helpdesk.Infrastructure.EntityFramework;
 using PhoneRegistryDDD.Helpdesk.Infrastructure.Repositories;
 using PhoneRegistryDDD.Helpdesk.Infrastructure.Settings;
+using SuligaPawel.Common.EF;
 
 [assembly: InternalsVisibleTo("PhoneRegistryDDD.Helpdesk.Api")]
 
@@ -19,9 +20,11 @@ internal static class DependencyInjection
 
         services.AddDbContext<HelpdeskDbContext>(options => options.UseNpgsql(
             dbSettings.ConnectionString,
-            options => options.MigrationsHistoryTable("__MigrationsHistory", dbSettings.Schema)));
+            opt => opt.MigrationsHistoryTable("__MigrationsHistory", dbSettings.Schema)));
 
-        services.AddScoped<IEmployeeRepository, EmployeeRepository>();
+        services
+            .RegisterDbContextFacade<HelpdeskDbContext>()
+            .AddScoped<IEmployeeRepository, EmployeeRepository>();
 
         return services;
     }
