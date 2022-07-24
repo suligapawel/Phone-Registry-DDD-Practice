@@ -16,11 +16,6 @@
     <ItemGroup>
         <ProjectReference Include="..\Availability\PhoneRegistryDDD.Availability.Api\PhoneRegistryDDD.Availability.Api.csproj" />
         <ProjectReference Include="..\Helpdesk\PhoneRegistryDDD.Helpdesk.Api\PhoneRegistryDDD.Helpdesk.Api.csproj" />
-        <ProjectReference Include="..\Services\PhoneRegistryDDD.Orchestrating\PhoneRegistryDDD.Orchestrating.csproj" />
-    </ItemGroup>
-
-    <ItemGroup>
-      <None Remove="*Undefined*.code_style\TestAnalyzers.ruleset" />
     </ItemGroup>
     
 </Project>
