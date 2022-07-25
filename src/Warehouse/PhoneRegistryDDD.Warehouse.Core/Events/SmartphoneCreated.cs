@@ -1,5 +1,6 @@
+using System;
+using SuligaPawel.Common.CQRS.Events;
+
 namespace PhoneRegistryDDD.Warehouse.Core.Events;
 
-public class SmartphoneCreated
-{
-}
+public record SmartphoneCreated(Guid Id) : IEvent;

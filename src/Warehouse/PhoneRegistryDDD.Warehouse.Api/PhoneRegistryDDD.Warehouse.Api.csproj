@@ -5,13 +5,7 @@
     </PropertyGroup>
 
     <ItemGroup>
-      <Folder Include="Controllers" />
-    </ItemGroup>
-
-    <ItemGroup>
-      <Reference Include="Microsoft.Extensions.DependencyInjection.Abstractions, Version=5.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60">
-        <HintPath>..\..\..\..\..\usr\share\dotnet\shared\Microsoft.AspNetCore.App\5.0.9\Microsoft.Extensions.DependencyInjection.Abstractions.dll</HintPath>
-      </Reference>
+      <ProjectReference Include="..\PhoneRegistryDDD.Warehouse.Core\PhoneRegistryDDD.Warehouse.Core.csproj" />
     </ItemGroup>
 
 </Project>

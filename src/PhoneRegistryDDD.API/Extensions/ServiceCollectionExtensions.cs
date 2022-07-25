@@ -6,6 +6,9 @@ using PhoneRegistryDDD.Availability.Application.Handlers;
 using PhoneRegistryDDD.Helpdesk.Api;
 using PhoneRegistryDDD.Helpdesk.Application.Handlers;
 using PhoneRegistryDDD.Shared.Infrastructure;
+using PhoneRegistryDDD.Warehouse.Api;
+using PhoneRegistryDDD.Warehouse.Core.CQRS.Commands.SimCards.Create;
+using PhoneRegistryDDD.Warehouse.Core.Events;
 using SuligaPawel.Common.CQRS;
 
 namespace PhoneRegistryDDD.API.Extensions;
@@ -18,9 +21,10 @@ public static class ServiceCollectionExtensions
 
         services.AddAvailability(config)
             .AddHelpdesk(config)
+            .AddWarehouse(config)
             .AddApi()
-            .AddCqrs(typeof(TakeBackKitHandler).Assembly, typeof(UnblockAssortmentHandler).Assembly)
-            .AddSynchronousEvents(new[] { typeof(KitReturnedHandler).Assembly })
+            .AddCqrs(typeof(TakeBackKitHandler).Assembly, typeof(UnblockAssortmentHandler).Assembly, typeof(CreateSimCardHandler).Assembly)
+            .AddSynchronousEvents(new[] { typeof(KitReturnedHandler).Assembly, typeof(SimCardCreated).Assembly })
             .AddShared();
 
         return services;

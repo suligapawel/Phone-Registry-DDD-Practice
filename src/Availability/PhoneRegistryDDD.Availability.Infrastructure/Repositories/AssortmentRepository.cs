@@ -18,6 +18,9 @@ public class AssortmentRepository : IAssortmentRepository
         _dbContext = dbContext;
     }
 
+    public async Task Add(Assortment assortment)
+        => await _dbContext.AddAsync(assortment);
+
     public async Task<IReadOnlyCollection<Assortment>> GetFewBy(IEnumerable<Guid> ids)
         => await _dbContext.Assortment
             .Include(x => x.Blocks)

@@ -2,7 +2,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using PhoneRegistryDDD.Warehouse.Core.Entities;
 
-namespace PhoneRegistryDDD.Warehouse.Core.DAL.Configuration;
+namespace PhoneRegistryDDD.Warehouse.Core.DAL.EntityFramework.Configuration;
 
 public class SimCardConfig : IEntityTypeConfiguration<SimCard>
 {
@@ -24,5 +24,7 @@ public class SimCardConfig : IEntityTypeConfiguration<SimCard>
             .Property(x => x.Puk)
             .IsRequired()
             .HasMaxLength(8);
+
+        builder.ToTable("SimCards", "warehouse");
     }
 }

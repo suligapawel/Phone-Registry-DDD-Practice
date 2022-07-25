@@ -9,7 +9,7 @@
     </ItemGroup>
     
     <ItemGroup>
-        <ProjectReference Include="..\PhoneRegistryDDD.Helpdesk.Core\PhoneRegistryDDD.Helpdesk.Core.csproj"/>
+        <ProjectReference Include="..\PhoneRegistryDDD.Helpdesk.Core\PhoneRegistryDDD.Helpdesk.Core.csproj" />
     </ItemGroup>
 
 </Project>

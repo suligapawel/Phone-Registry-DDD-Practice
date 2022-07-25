@@ -10,12 +10,12 @@
             <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
         </PackageReference>
         <PackageReference Include="SuligaPawel.Common.CodeStyle" Version="1.0.0" />
-        <PackageReference Include="SuligaPawel.Common.Exceptions" Version="1.0.0" />
     </ItemGroup>
 
     <ItemGroup>
         <ProjectReference Include="..\Availability\PhoneRegistryDDD.Availability.Api\PhoneRegistryDDD.Availability.Api.csproj" />
         <ProjectReference Include="..\Helpdesk\PhoneRegistryDDD.Helpdesk.Api\PhoneRegistryDDD.Helpdesk.Api.csproj" />
+        <ProjectReference Include="..\Warehouse\PhoneRegistryDDD.Warehouse.Api\PhoneRegistryDDD.Warehouse.Api.csproj" />
     </ItemGroup>
     
 </Project>

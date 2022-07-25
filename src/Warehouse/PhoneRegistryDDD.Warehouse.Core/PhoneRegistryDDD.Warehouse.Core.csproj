@@ -5,11 +5,11 @@
     </PropertyGroup>
 
     <ItemGroup>
-        <Folder Include="DAL\Repositories\Abstracts"/>
+        <ProjectReference Include="..\..\Shared\PhoneRegistryDDD.Shared.Infrastructure\PhoneRegistryDDD.Shared.Infrastructure.csproj" />
     </ItemGroup>
 
     <ItemGroup>
-        <ProjectReference Include="..\..\Shared\PhoneRegistryDDD.Shared.Infrastructure\PhoneRegistryDDD.Shared.Infrastructure.csproj"/>
+      <PackageReference Include="Npgsql.EntityFrameworkCore.PostgreSQL" Version="6.0.5" />
     </ItemGroup>
 
 </Project>

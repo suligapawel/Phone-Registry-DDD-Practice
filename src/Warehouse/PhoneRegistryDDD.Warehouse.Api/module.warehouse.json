@@ -1,0 +1,8 @@
+{
+  "warehouse": {
+    "database": {
+      "connectionString": "Host=localhost;Database=PhoneRegistryDDD;Username=postgres;Password=postgres;",
+      "schema": "warehouse"
+    } 
+  }
+}

@@ -35,7 +35,8 @@ public sealed class Assortment
         _blocks = blocks.ToList();
     }
 
-    public static Assortment New() => new(Guid.NewGuid(), new Block[2]);
+    public static Assortment New() => new(Guid.NewGuid(), new List<Block>());
+    public static Assortment New(Guid id) => new(id, new List<Block>());
     public static Assortment FromSnapshot(Guid id, IEnumerable<Block> blocks) => new(id, blocks.ToArray());
 
     public bool BlockTemporaryFor(Owner owner)
