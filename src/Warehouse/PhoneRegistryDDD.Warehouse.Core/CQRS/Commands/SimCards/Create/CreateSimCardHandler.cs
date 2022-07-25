@@ -23,6 +23,8 @@ public class CreateSimCardHandler : ICommandHandler<CreateSimCard>
 
     public async Task Handle(CreateSimCard command, CancellationToken cancellationToken)
     {
+        ArgumentNullException.ThrowIfNull(command);
+
         await ValidNumber(command.Number);
         ValidPin(command.Pin);
         ValidPuk(command.Puk);
@@ -32,7 +34,7 @@ public class CreateSimCardHandler : ICommandHandler<CreateSimCard>
             Id = Guid.NewGuid(),
             Number = command.Number,
             Pin = command.Pin,
-            Puk = command.Puk
+            Puk = command.Puk,
         };
 
         await _repo.Add(newSimCard);
@@ -57,7 +59,7 @@ public class CreateSimCardHandler : ICommandHandler<CreateSimCard>
         return _repo.ExistsAlready(number);
     }
 
-    private void ValidPin(string pin)
+    private static void ValidPin(string pin)
     {
         if (string.IsNullOrWhiteSpace(pin) || pin.Length != 4)
         {
@@ -65,7 +67,7 @@ public class CreateSimCardHandler : ICommandHandler<CreateSimCard>
         }
     }
 
-    private void ValidPuk(string puk)
+    private static void ValidPuk(string puk)
     {
         if (string.IsNullOrWhiteSpace(puk) || puk.Length is < 8 or > 12)
         {

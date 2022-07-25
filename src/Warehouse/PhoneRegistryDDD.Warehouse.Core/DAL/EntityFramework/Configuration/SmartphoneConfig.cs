@@ -1,3 +1,4 @@
+using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using PhoneRegistryDDD.Warehouse.Core.Entities;
@@ -8,6 +9,8 @@ public class SmartphoneConfig : IEntityTypeConfiguration<Smartphone>
 {
     public void Configure(EntityTypeBuilder<Smartphone> builder)
     {
+        ArgumentNullException.ThrowIfNull(builder);
+
         builder.HasKey(x => x.Id);
 
         builder
@@ -24,8 +27,7 @@ public class SmartphoneConfig : IEntityTypeConfiguration<Smartphone>
             .Property(x => x.Model)
             .IsRequired()
             .HasMaxLength(64);
-        
-        builder.ToTable("Smartphones", "warehouse");
 
+        builder.ToTable("Smartphones", "warehouse");
     }
 }

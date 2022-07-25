@@ -1,3 +1,4 @@
+using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using PhoneRegistryDDD.Warehouse.Core.Entities;
@@ -8,6 +9,8 @@ public class SimCardConfig : IEntityTypeConfiguration<SimCard>
 {
     public void Configure(EntityTypeBuilder<SimCard> builder)
     {
+        ArgumentNullException.ThrowIfNull(builder);
+
         builder.HasKey(x => x.Id);
 
         builder

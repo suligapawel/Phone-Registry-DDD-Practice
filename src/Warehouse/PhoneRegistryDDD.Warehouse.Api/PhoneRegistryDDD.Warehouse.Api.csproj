@@ -5,6 +5,10 @@
     </PropertyGroup>
 
     <ItemGroup>
+        <PackageReference Include="SuligaPawel.Common.CodeStyle" Version="1.0.0" />
+    </ItemGroup>
+    
+    <ItemGroup>
       <ProjectReference Include="..\PhoneRegistryDDD.Warehouse.Core\PhoneRegistryDDD.Warehouse.Core.csproj" />
     </ItemGroup>
 

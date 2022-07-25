@@ -30,6 +30,8 @@ public class AssortmentRepository : IAssortmentRepository
 
     public async Task<bool> UpdateFew(IEnumerable<Assortment> assortments)
     {
+        ArgumentNullException.ThrowIfNull(assortments);
+
         foreach (var assortment in assortments)
         {
             _dbContext.Assortment.Update(assortment);

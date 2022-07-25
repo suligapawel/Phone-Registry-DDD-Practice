@@ -6,7 +6,7 @@ namespace PhoneRegistryDDD.Availability.Core.ValueObjects;
 public sealed class Block
 {
     private bool _isPermanentBlock;
-    
+
     public Owner Owner { get; init; }
 
     [Obsolete("For EF", true)]

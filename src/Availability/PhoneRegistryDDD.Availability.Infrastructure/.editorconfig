@@ -1,0 +1,3 @@
+[/EntityFramework/Migrations/**.cs]
+dotnet_diagnostic.CA1062.severity = none
+dotnet_diagnostic.SA1413.severity = none 
