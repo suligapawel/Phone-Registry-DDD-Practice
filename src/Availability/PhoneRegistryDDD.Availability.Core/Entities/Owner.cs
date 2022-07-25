@@ -4,7 +4,12 @@ namespace PhoneRegistryDDD.Availability.Core.Entities;
 
 public sealed class Owner
 {
-    public Guid Id { get; }
+    public Guid Id { get; init; }
+
+    [Obsolete("For EF", true)]
+    public Owner()
+    {
+    }
 
     private Owner(Guid id)
     {

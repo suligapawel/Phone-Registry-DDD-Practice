@@ -16,7 +16,7 @@ internal static class DependencyInjection
 {
     public static IServiceCollection AddInfrastructure(this IServiceCollection services, IConfiguration config)
     {
-        var dbSettings = config.GetSection("helpdesk:database").Get<DbSettings>();
+        var dbSettings = config.GetSection("availability:database").Get<DbSettings>();
 
         services.AddDbContext<AvailabilityDbContext>(options => options.UseNpgsql(
             dbSettings.ConnectionString,

@@ -1,15 +1,22 @@
-﻿using PhoneRegistryDDD.Availability.Core.Entities;
+﻿using System;
+using PhoneRegistryDDD.Availability.Core.Entities;
 
 namespace PhoneRegistryDDD.Availability.Core.ValueObjects;
 
 public sealed class Block
 {
-    private readonly Owner _owner;
     private bool _isPermanentBlock;
+    
+    public Owner Owner { get; init; }
+
+    [Obsolete("For EF", true)]
+    public Block()
+    {
+    }
 
     private Block(Owner employee, bool isPermanentBlock)
     {
-        _owner = employee;
+        Owner = employee;
         _isPermanentBlock = isPermanentBlock;
     }
 
@@ -18,5 +25,5 @@ public sealed class Block
 
     public bool CanBlockPermanently(Owner owner) => IsBlockedBySameOwner(owner);
 
-    private bool IsBlockedBySameOwner(Owner owner) => _owner.Equals(owner);
+    private bool IsBlockedBySameOwner(Owner owner) => Owner.Equals(owner);
 }

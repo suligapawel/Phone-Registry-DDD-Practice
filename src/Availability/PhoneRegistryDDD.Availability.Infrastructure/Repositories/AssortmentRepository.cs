@@ -19,7 +19,19 @@ public class AssortmentRepository : IAssortmentRepository
     }
 
     public async Task<IReadOnlyCollection<Assortment>> GetFewBy(IEnumerable<Guid> ids)
-        => await _dbContext.Assortment.Where(x => ids.Contains(x.Id)).ToListAsync();
+        => await _dbContext.Assortment
+            .Include(x => x.Blocks)
+            .ThenInclude(x => x.Owner)
+            .Where(x => ids.Contains(x.Id))
+            .ToListAsync();
 
-    public async Task<bool> UpdateFew(IEnumerable<Assortment> assortments) => await Task.FromResult(true);
+    public async Task<bool> UpdateFew(IEnumerable<Assortment> assortments)
+    {
+        foreach (var assortment in assortments)
+        {
+            _dbContext.Assortment.Update(assortment);
+        }
+
+        return await Task.FromResult(true);
+    }
 }

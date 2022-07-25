@@ -11,23 +11,28 @@ public sealed class Assortment
     private const int TemporaryBlockIndex = 0;
     private const int PermanentBlockIndex = 1;
 
-    private readonly Block[] _blocks;
+    private readonly List<Block> _blocks = new();
+    public IReadOnlyCollection<Block> Blocks => _blocks.AsReadOnly();
 
     public Guid Id { get; init; }
 
-    private Block TemporaryBlock => _blocks[TemporaryBlockIndex];
-    private Block PermanentBlock => _blocks[PermanentBlockIndex];
+    private Block TemporaryBlock => _blocks.FirstOrDefault();
+    private Block PermanentBlock => _blocks.Skip(1).FirstOrDefault();
 
-    private Assortment(Guid id, Block[] blocks)
+    [Obsolete("For EF", true)]
+    public Assortment()
     {
-        if (blocks.Length > 2)
+    }
+
+    private Assortment(Guid id, IReadOnlyCollection<Block> blocks)
+    {
+        if (blocks.Count > 2)
         {
             throw new ToManyBlockException();
         }
 
         Id = id;
-        _blocks = new Block[2];
-        blocks.CopyTo(_blocks, 0);
+        _blocks = blocks.ToList();
     }
 
     public static Assortment New() => new(Guid.NewGuid(), new Block[2]);
@@ -75,6 +80,6 @@ public sealed class Assortment
 
     private void RemoveTemporaryBlock()
     {
-        _blocks[TemporaryBlockIndex] = null;
+        _blocks.Remove(_blocks.First());
     }
 }
