@@ -7,7 +7,7 @@ using SuligaPawel.Common.CQRS.Commands.Dispatchers;
 namespace PhoneRegistryDDD.Warehouse.Api.Controllers;
 
 [ApiController]
-[Route("[controller]")]
+[Route("warehouse/[controller]")]
 public class SimCardsController : ControllerBase
 {
     private readonly ICommandDispatcher _commandDispatcher;

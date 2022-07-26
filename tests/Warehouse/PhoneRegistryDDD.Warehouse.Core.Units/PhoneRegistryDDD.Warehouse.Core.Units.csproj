@@ -21,12 +21,4 @@
       <ProjectReference Include="..\..\..\src\Warehouse\PhoneRegistryDDD.Warehouse.Core\PhoneRegistryDDD.Warehouse.Core.csproj" />
     </ItemGroup>
 
-    <ItemGroup>
-      <Folder Include="Commands\SimCards" />
-    </ItemGroup>
-
-    <ItemGroup>
-      <Compile Remove="Commands\SimCards\CreateSimCardHandlerTests.cs" />
-    </ItemGroup>
-
 </Project>

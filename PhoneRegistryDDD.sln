@@ -63,6 +63,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PhoneRegistryDDD.Warehouse.
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "IntegrationTests", "IntegrationTests", "{0D53E0BF-FF2D-40EF-8E57-4C0F7AAA9299}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PhoneRegistryDDD.IntegrationTests", "tests\IntegrationTests\PhoneRegistryDDD.IntegrationTests\PhoneRegistryDDD.IntegrationTests.csproj", "{24DA743B-47D2-414B-92AA-7A44744A21B0}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -141,6 +143,10 @@ Global
 		{769618B9-264C-42DD-872B-426720D58327}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{769618B9-264C-42DD-872B-426720D58327}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{769618B9-264C-42DD-872B-426720D58327}.Release|Any CPU.Build.0 = Release|Any CPU
+		{24DA743B-47D2-414B-92AA-7A44744A21B0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{24DA743B-47D2-414B-92AA-7A44744A21B0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{24DA743B-47D2-414B-92AA-7A44744A21B0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{24DA743B-47D2-414B-92AA-7A44744A21B0}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -174,6 +180,7 @@ Global
 		{4F752122-AF99-4643-A7F9-8A226FD8C7C2} = {81B97044-FB0F-4289-AB5C-A84A246B2B63}
 		{769618B9-264C-42DD-872B-426720D58327} = {4F752122-AF99-4643-A7F9-8A226FD8C7C2}
 		{0D53E0BF-FF2D-40EF-8E57-4C0F7AAA9299} = {81B97044-FB0F-4289-AB5C-A84A246B2B63}
+		{24DA743B-47D2-414B-92AA-7A44744A21B0} = {0D53E0BF-FF2D-40EF-8E57-4C0F7AAA9299}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {37D5279A-0D15-4FFF-B9F8-25BC6B1E8E80}
