@@ -18,7 +18,7 @@
     </ItemGroup>
 
     <ItemGroup>
-      <ProjectReference Include="..\..\src\Warehouse\PhoneRegistryDDD.Warehouse.Core\PhoneRegistryDDD.Warehouse.Core.csproj" />
+      <ProjectReference Include="..\..\..\src\Warehouse\PhoneRegistryDDD.Warehouse.Core\PhoneRegistryDDD.Warehouse.Core.csproj" />
     </ItemGroup>
 
     <ItemGroup>
