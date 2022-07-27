@@ -1,14 +1,14 @@
 using Microsoft.AspNetCore.Hosting;
+using PhoneRegistryDDD.API;
 using SuligaPawel.Common.IntegrationTest.Authorization.Users;
 using SuligaPawel.Common.IntegrationTest.Extensions.WebHostBuilderExtensions;
 using SuligaPawel.Common.IntegrationTest.Setup;
 
 namespace PhoneRegistryDDD.IntegrationTests.Setup;
 
-public sealed class PhoneRegistryApplicationFactory : CommonWebApplicationFactory<Program>
+public sealed class PhoneRegistryApplicationFactory : CommonWebApplicationFactory<Startup>
 {
     private const string ConnectionString = "Host=localhost;Database=IntegrationTests;Username=postgres;Password=postgres;";
-    private const string SuffixDbName = ":database:connectionString";
 
     protected override User DefaultUser { get; } = new(Guid.Parse("20a6762b-d784-4e94-b400-d5129db3ad80"), "psuliga");
 
@@ -18,11 +18,9 @@ public sealed class PhoneRegistryApplicationFactory : CommonWebApplicationFactor
             ConnectionString,
             new[]
             {
-                $"warehouse{SuffixDbName}",
-                $"availability{SuffixDbName}",
-                $"helpdesk{SuffixDbName}",
+                $"warehouse:database:connectionString",
+                $"availability:database:connectionString",
+                $"helpdesk:database:connectionString",
             });
-
-        base.ConfigureWebHost(builder);
     }
 }

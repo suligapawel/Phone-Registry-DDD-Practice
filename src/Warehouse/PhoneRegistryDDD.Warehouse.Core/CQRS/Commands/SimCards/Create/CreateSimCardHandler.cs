@@ -31,7 +31,7 @@ public class CreateSimCardHandler : ICommandHandler<CreateSimCard>
 
         var newSimCard = new SimCard
         {
-            Id = Guid.NewGuid(),
+            Id = command.Id,
             Number = command.Number,
             Pin = command.Pin,
             Puk = command.Puk,

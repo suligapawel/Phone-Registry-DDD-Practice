@@ -21,8 +21,10 @@ public class SimCardsController : ControllerBase
     public async Task<IActionResult> Post(CreateSimCardRequest request)
     {
         ArgumentNullException.ThrowIfNull(request);
-        await _commandDispatcher.Execute(request.AsCommand());
+        var command = request.AsCommand();
 
-        return Ok();
+        await _commandDispatcher.Execute(command);
+
+        return Ok(command.Id);
     }
 }

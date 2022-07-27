@@ -1,35 +1,14 @@
-using Microsoft.AspNetCore.Builder;
+using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Hosting;
-using PhoneRegistryDDD.API.Extensions;
+using PhoneRegistryDDD.API;
 using PhoneRegistryDDD.Shared.Infrastructure;
-using SuligaPawel.Common.Exceptions.Extensions;
 
-var builder = WebApplication.CreateBuilder(args);
-builder.Host.AddModuleSettings();
-builder.Services.AddServices(builder.Configuration);
+CreateHostBuilder(args)
+    .Build()
+    .RunAsync();
 
-var app = builder.Build();
-
-if (app.Environment.IsDevelopment())
-{
-    app.UseDeveloperExceptionPage();
-}
-
-app.UseHttpsRedirection();
-
-app.UseExceptionMiddleware();
-
-app.UseRouting();
-
-app.UseAuthorization();
-
-app.UseEndpoints(endpoints => { endpoints.MapControllers(); });
-
-app.Run();
-
-// It's workaround for integration tests
-#pragma warning disable CA1050
-public partial class Program
-#pragma warning restore CA1050
-{
-}
+static IHostBuilder CreateHostBuilder(string[] args)
+    => Host
+        .CreateDefaultBuilder(args)
+        .AddModuleSettings()
+        .ConfigureWebHostDefaults(builder => builder.UseStartup<Startup>());

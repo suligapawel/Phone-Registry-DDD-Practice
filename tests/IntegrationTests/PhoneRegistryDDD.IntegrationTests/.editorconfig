@@ -1,0 +1,2 @@
+[/Setup/PhoneRegistryCollection.cs]
+dotnet_diagnostic.CA1711.severity = none # Dont use Collection word 
